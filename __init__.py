@@ -36,6 +36,16 @@ def home():
     """ home page of website """
     return render_template("index.html")
 
+@app.route("/api")
+def api():
+    """ returns api.html and list of api routes """
+    api_routes = [
+        #"api/v1.0/WeaponType",
+        #"api/v1.0/Lattitude",
+        #"api/v1.0/Longitude",
+    ]
+    return render_template("api.html", api_routes = api_routes)
+
 
 if __name__ == '__main__'
     app.run(debug=False)
