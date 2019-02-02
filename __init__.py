@@ -2,24 +2,22 @@
 from flask import Flask, jsonify, render_template
 from settings import username, password
 import sqlalchemy
-import sqlalchemy.ext.automap import automap_base
+from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, MetaData
 
 #Set up the database
-# TODO: Update connection_string with database name, update bases/classes when database is completed
-# source activate Project3ENV
+#source activate Project3ENV
 
-connection_string = (f"{username}:{password}@127.0.0.1:3306/###########")
+connection_string = (f"{username}:{password}@127.0.0.1:3306/global_terrorism_db")
 
-engine = create_engine(f'mysql://{connection_string)',encoding='utf-8')
+engine = create_engine(f'mysql://{connection_string}',encoding='utf-8')
 
 Base = automap_base()
 Base.prepare(engine, reflect=True)
 
-# WeaponType = Base.classes.WeaponType
-# Lattitude = Base.classes.Lattitude
-# Longitude = Base.classes.Longitude
+GTD = Base.classes.global_terrorism_new
+# Happiness = Base.classes.world_happiness_index
 
 session = Session(engine)
 
@@ -44,8 +42,17 @@ def api():
         #"api/v1.0/Lattitude",
         #"api/v1.0/Longitude",
     ]
-    return render_template("api.html", api_routes = api_routes)
+    return render_template("api.html")
+@app.route("/api/v1.0/<year>")
+def year(year):
+
+    """ json of data by year """
+    queries =[GTD.latitude,GTD.longitude]
+    results = session.query(*queries).\
+    filter(GTD.iyear >= year).all()
+    
+    return jsonify(results)
 
 
-if __name__ == '__main__'
-    app.run(debug=False)
+if __name__ == '__main__':
+    app.run(debug=True)
