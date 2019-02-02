@@ -2,6 +2,7 @@
 from flask import Flask, jsonify, render_template
 from settings import username, password
 import sqlalchemy
+import simplejson as json
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, MetaData
@@ -50,8 +51,8 @@ def year(year):
     queries =[GTD.latitude,GTD.longitude]
     results = session.query(*queries).\
     filter(GTD.iyear >= year).all()
-    
-    return jsonify(results)
+    print(results)
+    return json.dumps(results)
 
 
 if __name__ == '__main__':
