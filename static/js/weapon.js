@@ -25,7 +25,7 @@ var chartGroup = svg.append("g")
 
 // Initial Params
 var chosenXAxis = "iyear";
-var chosenYAxis = "nkills";
+var chosenYAxis = "nkill";
 
 // function used to update poverty X scale
 function xScale(weaponData, chosenXAxis) {
@@ -90,18 +90,18 @@ function renderCircleLabels(circlesLabels, newXScale, chosenXAxis) {
 //     return circlesGroup;
 // }
 
-d3.csv("assets/data/data1.csv").then(function (weaponData) {
+d3.csv("KunalEdit_GTD_New.csv").then(function (weaponData) {
 
     //parse data
     weaponData.forEach(function (data) {
-        data.noHealthInsurance = +data.noHealthInsurance;
+        data.nkill = +data.nkill;
         data.poverty = +data.poverty;
     });
 
     var xLinearScale = xScale(weaponData, chosenXAxis);
 
     var yLinearScale = d3.scaleLinear()
-        .domain([0, d3.max(weaponData, d => d.noHealthInsurance)])
+        .domain([0, d3.max(weaponData, d => d.nkill)])
         .range([height, 0]);
 
     var bottomAxis = d3.axisBottom(xLinearScale);
@@ -120,7 +120,7 @@ d3.csv("assets/data/data1.csv").then(function (weaponData) {
         .enter()
         .append("circle")
         .attr("cx", d => xLinearScale(d[chosenXAxis]))
-        .attr("cy", d => yLinearScale(d.noHealthInsurance))
+        .attr("cy", d => yLinearScale(d.nkill))
         .attr("r", 12)
         .attr("fill", "skyblue")
         .attr("opacity", ".7");
@@ -130,7 +130,7 @@ d3.csv("assets/data/data1.csv").then(function (weaponData) {
         .enter()
         .append("text")
         .attr("x", d => xLinearScale(d[chosenXAxis]))
-        .attr("y", d => yLinearScale(d.noHealthInsurance))
+        .attr("y", d => yLinearScale(d.nkill))
         .attr("font-size", 10)
         .attr("fill", "white")
         .attr("text-anchor", "middle")
@@ -143,9 +143,9 @@ d3.csv("assets/data/data1.csv").then(function (weaponData) {
     var povertyLabel = labelsGroup.append("text")
         .attr("x", 0)
         .attr("y", 20)
-        .attr("value", "poverty")
+        .attr("value", "year")
         .classed("active", true)
-        .text("In Poverty (%)");
+        .text("Year");
 
 
     // append y axis
