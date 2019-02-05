@@ -29,7 +29,7 @@ session = Session(engine)
 
 app = Flask(__name__)
 
-queries =[
+general_queries =[
     GTD.index1,
     GTD.iyear,
     GTD.country_txt,
@@ -49,6 +49,11 @@ queries =[
     GTD.nwound
     ]
 
+weap_queries =[
+    GTD.weaptype1_txt, 
+    GTD.weapsubtype2_txt
+    ]
+
 # Routing
 # @TODO route api correctly once database is created
 
@@ -61,18 +66,19 @@ def home():
 @app.route("/api")
 def api():
     """ returns api.html and list of api routes """
+    
     api_routes = [
         "api/v1.0/global_terror/metadata/<year>",
         "api/v1.0/global_terror/<year>",
         "api/v1.0/global_terror/<year>/<weaptype>",
         "api/v1.0/happiness/<year>"
     ]
+    
     return render_template("api.html", api_routes=api_routes)
 
 @app.route("/api/v1.0/global_terror/metadata/<year>")
 def meta_data(year):
     """ Return Meta Data for given year """
-    queries = [GTD.weaptype1_txt, GTD.weapsubtype2_txt]
     
     num_attacks = session.query(func.count(GTD.index1).label("Number of Attacks")).\
         filter(GTD.iyear == year).all()
@@ -89,10 +95,10 @@ def meta_data(year):
         group_by(GTD.attacktype1_txt).\
         order_by(desc("Top Three Attack Types")).limit(3).all()
 
-    top_weap_type = session.query(*queries,
+    top_weap_type = session.query(*weap_queries,
         func.count(GTD.index1).label("Top Three Weapon Types")).\
         filter(GTD.iyear == year).\
-        group_by(*queries).\
+        group_by(*weap_queries).\
         order_by(desc("Top Three Weapon Types")).limit(3).all()
 
     year_metadata = {
@@ -110,7 +116,7 @@ def meta_data(year):
 def y(year):
     """ json of data by year """
 
-    results = session.query(*queries).\
+    results = session.query(*general_queries).\
         filter(GTD.iyear == year).all()
     
     return jsonify(results)
@@ -118,10 +124,10 @@ def y(year):
 @app.route("/api/v1.0/global_terror/<year>/<weaptype>")
 def w_y(year,weaptype):
     """ json of data by year and weapon type """
-#    TODO: work on querying weapontype 2 could build api to have third input? ask group1
-    results = session.query(*queries).\
+    results = session.query(*general_queries).\
         filter(GTD.iyear == year).\
-        filter(GTD.weaptype1_txt == weaptype).all()
+        filter(GTD.weaptype1_txt == weaptype).\
+        filter((GTD.weaptype2_txt == weaptype)|(GTD.weapsubtype2_txt != weaptype)).all()
     
     return jsonify(results)
 
@@ -135,12 +141,3 @@ def happiness(year):
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-  # ts = {
-    #     "Country":{"name":GTD.country_txt,
-    #                "Location":[GTD.latitude,
-    #                            GTD.longitude]
-                               
-    #                 }
-    #     }
