@@ -61,11 +61,12 @@ def home():
 def api():
     """ returns api.html and list of api routes """
     api_routes = [
-        #"api/v1.0/WeaponType",
-        #"api/v1.0/Lattitude",
-        #"api/v1.0/Longitude",
+        "api/v1.0/global_terror/metadata/<year>",
+        "api/v1.0/global_terror/<year>",
+        "api/v1.0/global_terror/<year>/<weaptype>",
+        "api/v1.0/happiness/<year>"
     ]
-    return render_template("api.html")
+    return render_template("api.html", api_routes=api_routes)
 
 @app.route("/api/v1.0/global_terror/metadata/<year>")
 def meta_data(year):
