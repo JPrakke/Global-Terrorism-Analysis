@@ -88,35 +88,35 @@ def years():
 def meta_data(year):
     """ Return Meta Data for given year """
     
-    num_attacks = session.query(func.count(GTD.index1).label("Number of Attacks")).\
+    num_attacks = session.query(func.count(GTD.index1)).\
         filter(GTD.iyear == year).all()
 
-    num_kill = session.query(func.sum(GTD.nkill).label("Total Fatalities")).\
+    num_kill = session.query(func.sum(GTD.nkill)).\
         filter(GTD.iyear == year).all()
 
-    num_wound = session.query(func.sum(GTD.nwound).label("Total Wounded")).\
+    num_wound = session.query(func.sum(GTD.nwound)).\
         filter(GTD.iyear == year).all()
     
     top_attack_type = session.query(GTD.attacktype1_txt,
-        func.count(GTD.index1).label("Top Three Attack Types")).\
+        func.count(GTD.index1).label("Total Reports")).\
         filter(GTD.iyear == year).\
         group_by(GTD.attacktype1_txt).\
-        order_by(desc("Top Three Attack Types")).limit(3).all()
+        order_by(desc("Total Reports")).limit(3).all()
 
     top_weap_type = session.query(*weap_queries,
-        func.count(GTD.index1).label("Top Three Weapon Types")).\
+        func.count(GTD.index1).label("Total Reports")).\
         filter(GTD.iyear == year).\
         group_by(*weap_queries).\
-        order_by(desc("Top Three Weapon Types")).limit(3).all()
-
-    year_metadata = {
-        "METADATA":[{"year":year},
-                    num_attacks,
-                    top_attack_type,
-                    num_kill,
-                    num_wound,
-                    top_weap_type]
-    }
+        order_by(desc("Total Reports")).limit(3).all()
+ 
+    
+    year_metadata = [{
+                    "Total Attacks":num_attacks[0],
+                    "Top Attack Type":top_attack_type,
+                    "Total Fatalities":num_kill[0],
+                    "Total Wounded":num_wound[0],
+                    "Top Weapon Type":top_weap_type
+    }]
     
     return jsonify(year_metadata)
 
@@ -142,13 +142,13 @@ def w_y(year,weaptype):
 @app.route("/api/v1.0/happiness/<year>")
 def happiness(year):
     """ json of average global happiness per year """
-    queries = [Happiness.country, Happiness.index1]
     
-    results = session.query(*queries,
-        func.avg(Happiness.life_ladder).label("Averages")).\
+    results = session.query(func.avg(Happiness.life_ladder).label("Averages")).\
         filter(Happiness.year == year).all()
     
-    return jsonify(results)
+    print(results[0])
+    
+    return jsonify(results[0])
 
 if __name__ == '__main__':
     app.run(debug=True)

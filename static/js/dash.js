@@ -1,21 +1,21 @@
 console.log("script initializing.sasa..");
 const buildGauge = year => {
   d3.json(`/api/v1.0/happiness/${year}`).then((d) => {
-    console.log(d)
-    const level = parseFloat(d) * 20;
-
-    const degrees = 180 - level;
+    console.log(d);
+    let level = parseFloat(d) * 20;
+    console.log(`is ${level}`);
+    let degrees = 180 - level;
     const radius = 0.5;
-    const radians = (degrees * Math.PI) / 180;
-    const x = radius * Math.cos(radians);
-    const y = radius * Math.sin(radians);
+    let radians = (degrees * Math.PI) / 180;
+    let x = radius * Math.cos(radians);
+    let y = radius * Math.sin(radians);
 
     const mainPath = "M -.0 -0.05 L .0 0.05 L ";
-    const pathX = String(x);
-    const space = " ";
-    const pathY = String(y);
+    let pathX = String(x);
+    let space = " ";
+    let pathY = String(y);
     const pathEnd = " Z";
-    const path = mainPath.concat(pathX, space, pathY, pathEnd);
+    let path = mainPath.concat(pathX, space, pathY, pathEnd);
 
     let data = [
         {
@@ -89,21 +89,24 @@ const buildGauge = year => {
 
 
 const buildMetadata = year => {
-    d3.json(`/api/v1.0/global_terror/metadata/${year}`).then((data) => {
-      // Use d3 to select the panel with id of `#sample-metadata`
+  d3.json(`/api/v1.0/global_terror/metadata/${year}`).then((data) => {
+
       const PANEL = d3.select("#year-metadata");
-  
-      // Use `.html("") to clear any existing metadata
+      console.log(data)
       PANEL.html("");
-  
-      // Use `Object.entries` to add each key and value pair to the panel
-      // Hint: Inside the loop, you will need to use d3 to append new
-      // tags for each key-value in the metadata.
+
+      // for(key in data){
+      //   let value = data[key]
+      //   PANEL.append("h6").text(`${key}: ${value}`)
+      //   console.log(value)
+      // }
+      // for(property in data) {
+      //   console.log(property + "=" + data[property]);
+      // }
       Object.entries(data).forEach(([key, value]) => {
+        // console.log(value)
         PANEL.append("h6").text(`${key}: ${value}`);
       });
-  
-      // BONUS: Build the Gauge Chart
     });
   }
 
@@ -111,7 +114,7 @@ const buildMetadata = year => {
 function init() {
     console.log("something?");
   // Grab a reference to the dropdown select element
-  var selector = d3.select("#selDataset");
+  const selector = d3.select("#selDataset");
 
   // Use the list of sample names to populate the select options
   d3.json("/years").then((data) => {
@@ -125,15 +128,15 @@ function init() {
     
     // Use the first sample from the list to build the initial plots
     let firstYear = data[0];
-    buildGauge(firstYear)
-    // buildMetadata(firstYear);
+    // buildGauge(firstYear)
+    buildMetadata(firstYear);
   });
 }
 function optionChanged(newYear) {
     // Fetch new data each time a new sample is selected
     // buildCharts(newYear);
-    // buildMetadata(newYear);
-    buildGauge(newYear)
+    buildMetadata(newYear);
+    // buildGauge(newYear)
   }
 
 init();
