@@ -76,6 +76,14 @@ def api():
     
     return render_template("api.html", api_routes=api_routes)
 
+@app.route("/years")
+def years():
+    """return list of availible years"""
+    year = []
+    for value in session.query(GTD.iyear).distinct():
+        year.append(value.iyear)
+    return jsonify(list(year)[0:])
+
 @app.route("/api/v1.0/global_terror/metadata/<year>")
 def meta_data(year):
     """ Return Meta Data for given year """
@@ -134,9 +142,12 @@ def w_y(year,weaptype):
 @app.route("/api/v1.0/happiness/<year>")
 def happiness(year):
     """ json of average global happiness per year """
-    results = session.query(func.avg(Happiness.life_ladder).label("average")).\
+    queries = [Happiness.country, Happiness.index1]
+    
+    results = session.query(*queries,
+        func.avg(Happiness.life_ladder).label("Averages")).\
         filter(Happiness.year == year).all()
-    print(results[0])
+    
     return jsonify(results)
 
 if __name__ == '__main__':

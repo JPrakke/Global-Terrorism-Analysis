@@ -10,6 +10,9 @@
   <link rel="shortcut icon" type="image/x-icon" href="../static/assets/bookmark_icon.png">
 
   <title>Global Terrorism Analysis</title>
+  
+  <!-- Plotly -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
   <!-- Bootstrap core CSS -->
   <link href="../static/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -84,34 +87,33 @@
 
   </header>
     <section class="bg-primary" id="about">
-      <div class="container">
+      <div class="container my-auto">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading text-white">Data Traversal</h2>
             <hr class="light my-4">
-            <div class="col">
-              <p>Data goes here</p>
+            <div class="col-md-5">
+                <div id ="gauge"></div>
+            </div>
+            <div class="col-md-2">
+              <div class="well">
+                <h5>Select Year:</h5>
+                <select id="selDataset" onchange="optionChanged(this.value)"></select>
+              </div>
+              <div class ="panel panel-primary">
+                <div class = "panel-heading">
+                  <h3 class= "panel-title">MetaData</h3>
+                </div>
+                <div id="year-metadata" class="panel-body"></div>
+              </div>
+            </div>
           
             <!-- Map A -->
 
-            <div class="col", id="map">
-        
-            </div>
+            <div class="col-md-12", id="map">
+
+            <div ></div>      
            
-            <!-- D3 -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script> 
-            
-            <!-- leaflet.js -->
-            <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
-            integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-            crossorigin=""></script>
-            
-            <!-- apiKey -->
-            <script src="../static/js/settings.js"></script>
-            
-            <!-- mappingScript -->
-            <script src="../static/js/logic.js"></script>
-            <script src="../static/js/weapon.js"></script>
 
             <!-- <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a> -->
             </div>
@@ -121,7 +123,9 @@
       </div>
     </div>
   </section>
+<!----------------------------------- testing ------------------------------------->
 
+<!----------------------------------- testing ------------------------------------->
   <section id="services">
     <div class="container">
       <div class="row">
@@ -165,7 +169,7 @@
     </div>
   </section>
 
-  <section class="p-0" id="portfolio">
+  <!-- <section class="p-0" id="portfolio">
     <div class="container-fluid p-0">
       <div class="row no-gutters popup-gallery">
         <div class="col-lg-4 col-sm-6">
@@ -260,7 +264,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <section class="bg-dark text-white">
     <div class="container text-center">
@@ -295,23 +299,33 @@
     </div>
     
     </section>
-    
-  <!-- Logic Core JS -->
-  <script src="../static/js/logic.js"></script>
-  <script src="../static/js/weapon.js"></script>
-  <script src="../static/js/settings.js"></script>
+ 
+  <!-- leaflet.js -->
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+  integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+  crossorigin=""></script>
+  <!-- D3 -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
 
+  <!-- Logic Core JS -->
+  <script src="../static/js/dash.js"></script>
+  <script src="../static/js/logic.js"></script>
+  <!-- <script src="../static/js/weapon.js"></script> -->
+  <script src="../static/js/settings.js"></script>
+  
+
+  
   <!-- Bootstrap core JavaScript -->
-  <script src="../static/vendor/jquery/jquery.min.js"></script>
-  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="../static/vendor/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Plugin JavaScript -->
-  <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script src="../static/vendor/scrollreveal/scrollreveal.min.js"></script>
-  <script src="../static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script type="text/javascript" src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script type="text/javascript" src="../static/vendor/scrollreveal/scrollreveal.min.js"></script>
+  <script type="text/javascript" src="../static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="../static/js/creative.min.js"></script>
+  <script type="text/javascript" src="../static/js/creative.min.js"></script>
 
 </body>
 
