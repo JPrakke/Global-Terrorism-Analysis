@@ -5,7 +5,7 @@ import sqlalchemy
 import simplejson as json
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func, MetaData
+from sqlalchemy import create_engine, func, desc
 from sqlalchemy.pool import StaticPool
 
 #Set up the database
@@ -30,6 +30,7 @@ session = Session(engine)
 app = Flask(__name__)
 
 queries =[
+    GTD.index1,
     GTD.iyear,
     GTD.country_txt,
     GTD.latitude,
@@ -71,20 +72,38 @@ def api():
 @app.route("/api/v1.0/global_terror/metadata/<year>")
 def meta_data(year):
     """ Return Meta Data for given year """
-    results = session.query(*queries).\
-    filter(GTD.iyear == year).all()
-# TODO : Work out meta data table queries
-    year_metadata = {}
-    for i in results:
-        year_metadata["Year"] = i[0]
-        year_metadata["Country"] = i[1]
-        year_metadata["Attack Type 1"] = i[4]
-        year_metadata["Attack Type 2"] = i[5]
-        year_metadata["Attack Type 3"] = i[6]
-        year_metadata["Target Type"] = i[7]
-        year_metadata["Target Subtype"] =i[8]
+    queries = [GTD.weaptype1_txt, GTD.weapsubtype2_txt]
     
-    print(year_metadata)
+    num_attacks = session.query(func.count(GTD.index1).label("Number of Attacks")).\
+        filter(GTD.iyear == year).all()
+
+    num_kill = session.query(func.sum(GTD.nkill).label("Total Fatalities")).\
+        filter(GTD.iyear == year).all()
+
+    num_wound = session.query(func.sum(GTD.nwound).label("Total Wounded")).\
+        filter(GTD.iyear == year).all()
+    
+    top_attack_type = session.query(GTD.attacktype1_txt,
+        func.count(GTD.index1).label("Top Three Attack Types")).\
+        filter(GTD.iyear == year).\
+        group_by(GTD.attacktype1_txt).\
+        order_by(desc("Top Three Attack Types")).limit(3).all()
+
+    top_weap_type = session.query(*queries,
+        func.count(GTD.index1).label("Top Three Weapon Types")).\
+        filter(GTD.iyear == year).\
+        group_by(*queries).\
+        order_by(desc("Top Three Weapon Types")).limit(3).all()
+
+    year_metadata = {
+        "METADATA":[{"year":year},
+                    num_attacks,
+                    top_attack_type,
+                    num_kill,
+                    num_wound,
+                    top_weap_type]
+    }
+    
     return jsonify(year_metadata)
 
 @app.route("/api/v1.0/global_terror/<year>")
