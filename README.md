@@ -1,4 +1,4 @@
-# GLobal Violence ANalysis
+# Global Violence Analysis
 ---
 
 ## rules for submitting
