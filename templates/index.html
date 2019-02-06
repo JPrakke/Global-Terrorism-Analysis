@@ -26,6 +26,8 @@
 
   <!-- Plugin CSS -->
   <link href="../static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/font-awesome.css">
+  <link rel="stylesheet" href="../css/font-awesome.min.css">
 
   <!-- Custom styles for this template -->
   <link href="../static/css/creative.css" rel="stylesheet">
@@ -55,13 +57,13 @@
             <a class="nav-link js-scroll-trigger" href="#about">Data Traversing</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">ETL Writeup</a>
+            <a class="nav-link js-scroll-trigger" href="#services">Synopsis</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
-          </li>
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link" href="#portfolio">API</a>
+          </li>
           </li>
         </ul>
       </div>
@@ -73,14 +75,16 @@
       <div class="row">
         <div class="col-lg-10 mx-auto">
           <h1 class="text-uppercase" style="color: white; opacity: 2;">
-            <strong>Global Terrorism</strong>
+            <strong>Guns are not the biggest killer</strong>
           </h1>
           <hr>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5">Start Bootstrap can help you build better websites using the Bootstrap CSS
-              framework! Just download your template and start going, no strings attached!</p>
+            <p class="text-faded mb-5" style=font-size:25px;>By analyzing major terrorist attacks around the world, we set out to create an interactive visual experience of the weapons that cause
+              the most fatalities around the world to prove the point that even if guns were completely banned, there are still more dangerous forms of weapon.
+            </p>
           </div>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Explore the Data</a>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#disclaimer">View disclaimer</a>
         </div>
       </div>
     </div>
@@ -130,7 +134,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading">At Your Service</h2>
+          <h2 class="section-heading">Synopsis</h2>
           <hr class="my-4">
         </div>
       </div>
@@ -139,30 +143,39 @@
       <div class="row">
         <div class="col-lg-3 col-md-6 text-center">
           <div class="service-box mt-5 mx-auto">
-            <i class="fas fa-4x fa-gem text-primary mb-3 sr-icon-1"></i>
-            <h3 class="mb-3">Sturdy Templates</h3>
-            <p class="text-muted mb-0">Our templates are updated regularly so they don't break.</p>
+            <i class="fas fa-4x fa-trash text-primary mb-3 sr-icon-1"></i>
+            <h3 class="mb-3">Where is the data for 1993?</h3>
+            <p class="text-muted mb-0">The original PGIS data, upon which the 1970-1997 GTD data are based, consisted of hard-copy index cards originally. 
+              When being electronically transferred by researchers, significant data for 1993 went missing and is omitted due to this.
+            </p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
           <div class="service-box mt-5 mx-auto">
-            <i class="fas fa-4x fa-paper-plane text-primary mb-3 sr-icon-2"></i>
-            <h3 class="mb-3">Ready to Ship</h3>
-            <p class="text-muted mb-0">You can use this theme as is, or you can make changes!</p>
+            <i class="fas fa-4x fa-server text-primary mb-3 sr-icon-2"></i>
+            <h3 class="mb-3">Database Debacles</h3>
+            <p class="text-muted mb-0">Data type for loading in MySQL, INT and DOUBLE cannot take negative.
+            <code>"Solution: INT Signed, DOUBLE signed"</code>
+            But later we did not end up using this as MySQL Data Import would give a lot of issues, and we changed the approach to using Pandas to load the data.
+            </p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
           <div class="service-box mt-5 mx-auto">
-            <i class="fas fa-4x fa-code text-primary mb-3 sr-icon-3"></i>
-            <h3 class="mb-3">Up to Date</h3>
-            <p class="text-muted mb-0">We update dependencies to keep things fresh.</p>
+            <i class="fas fa-4x fa-shower text-primary mb-3 sr-icon-3"></i>
+            <h3 class="mb-3">Cleaning up the Data</h3>
+            <p class="text-muted mb-0">We decided to only take data from the current century (2000-2016) to help performance. 
+            </br>Entries that were missing important tools such as lattitude and longitude were removed for mapping purposes.
+          </br>After cleaning with PANDAS, the data was loaded back into mySQL with 99801 rows.</p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
           <div class="service-box mt-5 mx-auto">
-            <i class="fas fa-4x fa-heart text-primary mb-3 sr-icon-4"></i>
-            <h3 class="mb-3">Made with Love</h3>
-            <p class="text-muted mb-0">You have to make your websites with love these days!</p>
+            <i class="fas fa-4x fa-calendar text-primary mb-3 sr-icon-4"></i>
+            <h3 class="mb-3">Checked for Accuracy</h3>
+            <p class="text-muted mb-0">For the integrity of our data, we cross referenced our data by querying major terrorism events (September 11th, Pulse Nightclub) from our database,
+              and comparing our results to official news reports to match correct numbers.
+            </p>
           </div>
         </div>
       </div>
@@ -265,12 +278,14 @@
       </div>
     </div>
   </section> -->
-
+<section id="disclaimer">
   <section class="bg-dark text-white">
     <div class="container text-center">
-      <h2 class="mb-4">Free Download at Start Bootstrap!</h2>
-      <a class="btn btn-light btn-xl sr-button" href="http://startbootstrap.com/template-overviews/creative/">Download
-        Now!</a>
+      <h2 class="mb-4">Disclaimer:
+      </br>The goal of this data analysis is not to offend anyone and is done with respect to all those who have lost their lives in acts of violence, regardless of how it was caused. The goal is to paint a picture of the many tools available to cause harm.
+      <hr><p>The data is present as unbiased as possible and does not discriminate against race, religion, nor does it reflect the ideals of the developers. It is purely the numerical evidence from the data we gathered.
+      </p>
+    </h2>
     </div>
   </section>
 
@@ -278,26 +293,43 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
-          <h2 class="section-heading">Let's Get In Touch!</h2>
+          <h2 class="section-heading">Contact Us</h2>
           <hr class="my-4">
-          <p class="mb-5">Ready to start your next project with us? That's great! Give us a call or send us an email
-            and we will get back to you as soon as possible!</p>
+  
         </div>
       </div>
-      <div class="row">
-        <div class="col-lg-4 ml-auto text-center">
-          <i class="fas fa-phone fa-3x mb-3 sr-contact-1"></i>
-          <p>123-456-6789</p>
+      <div class="container">
+          <div class="row">
+            <div class="col" style="padding:5px; border-style:groove; border-color:lightgrey; background-color:blanchedalmond">
+              <p>Josh Prakke</p>
+              <p>Backend (Flask, API)</p>
+            <a href="https://github.com/JPrakke"><i class="fab fa-github" style="font-size:48px"></i></a>
+            <a href="https://github.com/JPrakke"><i class="fab fa-linkedin-square" style="font-size:48px"></i></a>
+            </div>
+            <div class="col" style="padding:5px; border-style:groove; border-color:lightgrey; background-color:blanchedalmond">
+              <p>Kunal Soni</p>
+              <p>Backend (mySQL, Pandas)</p>
+              <a href="https://github.com/kunal-soni"><i class="fab fa-github" style="font-size:48px"></i></a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col" style="padding:5px; border-style:groove; border-color:lightgrey; background-color:blanchedalmond">
+              <p>Jhuelian Kyle</p>
+              <p>Frontend (HTML,CSS,JS)</p>
+              <a href="https://github.com/jhueliankg3"><i class="fab fa-github" style="font-size:48px"></i></a>
+            </div>
+            <div class="col" style="padding:5px; border-style:groove; border-color:lightgrey; background-color:blanchedalmond">
+              <p>Joel Botardo</p>
+              <p>Frontend (HTML,CSS,JS)</p>
+              <a href="https://github.com/jbotardo"><i class="fab fa-github" style="font-size:48px"></i></a>
+            </div>
+            <div class="col" style="padding:5px; border-style:groove; border-color:lightgrey; background-color:blanchedalmond">
+              <p>Timothy Sharpe</p>
+              <p>Frontend (HTML,CSS,JS)</p>
+              <a href="https://github.com/timothysharpe"><i class="fab fa-github" style="font-size:48px"></i></a>
+            </div>
+          </div>
         </div>
-        <div class="col-lg-4 mr-auto text-center">
-          <i class="fas fa-envelope fa-3x mb-3 sr-contact-2"></i>
-          <p>
-            <a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a>
-          </p>
-        </div>
-      </div>
-    </div>
-    
     </section>
  
   <!-- leaflet.js -->
@@ -308,7 +340,7 @@
   <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
 
   <!-- Logic Core JS -->
-  <script type="text/javascript"src="../static/js/dash.js"></script>
+  <script type="text/javascript" src="../static/js/logic.js"></script>
   
   <!-- <script src="../static/js/weapon.js"></script> -->
   <script type="text/javascript" src="../static/js/settings.js"></script>
