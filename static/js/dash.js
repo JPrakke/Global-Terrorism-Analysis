@@ -144,13 +144,13 @@ function init() {
     // Use the first sample from the list to build the initial plots
     let firstYear = data[0];
     // buildGauge(firstYear)
-    buildMetadata(firstYear);
+    // buildMetadata(firstYear);
   });
 }
 function optionChanged(newYear) {
     // Fetch new data each time a new sample is selected
     // buildCharts(newYear);
-    buildMetadata(newYear);
+    // buildMetadata(newYear);
     // buildGauge(newYear)
   }
 
