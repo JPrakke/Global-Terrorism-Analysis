@@ -92,8 +92,12 @@ const buildMetadata = year => {
   d3.json(`/api/v1.0/global_terror/metadata/${year}`).then((data) => {
 
       const PANEL = d3.select("#year-metadata");
-      console.log(data)
+      // console.log(data)
       PANEL.html("");
+
+    //   Object.entries(data).forEach(([key, value]) => {
+    //     console.log(value);
+    //  });
 
       // for(key in data){
       //   let value = data[key]
@@ -103,10 +107,21 @@ const buildMetadata = year => {
       // for(property in data) {
       //   console.log(property + "=" + data[property]);
       // }
-      Object.entries(data).forEach(([key, value]) => {
-        // console.log(value)
-        PANEL.append("h6").text(`${key}: ${value}`);
+      /*
+      Object.entries(data).forEach(([key, value]
+        ) => {
+
+          
+
       });
+      */
+      let arr1 = Object.keys(data)
+      let arr = Object.values(data)
+      console.log(arr[0])
+      PANEL.append("h6").text(`${arr1[0]}:${arr[0]['Total Reports']}`);
+
+      // console.log(arr[1])
+
     });
   }
 

@@ -88,35 +88,35 @@ def years():
 def meta_data(year):
     """ Return Meta Data for given year """
     
-    num_attacks = session.query(func.count(GTD.index1)).\
+    num_attacks = session.query(func.count(GTD.index1).label("Attacks")).\
         filter(GTD.iyear == year).all()
 
-    num_kill = session.query(func.sum(GTD.nkill)).\
+    num_kill = session.query(func.sum(GTD.nkill).label("Kills")).\
         filter(GTD.iyear == year).all()
 
-    num_wound = session.query(func.sum(GTD.nwound)).\
+    num_wound = session.query(func.sum(GTD.nwound).label("Wounded")).\
         filter(GTD.iyear == year).all()
     
     top_attack_type = session.query(GTD.attacktype1_txt,
         func.count(GTD.index1).label("Total Reports")).\
         filter(GTD.iyear == year).\
         group_by(GTD.attacktype1_txt).\
-        order_by(desc("Total Reports")).limit(3).all()
+        order_by(desc("Total Reports")).limit(1).all()
 
     top_weap_type = session.query(*weap_queries,
         func.count(GTD.index1).label("Total Reports")).\
         filter(GTD.iyear == year).\
         group_by(*weap_queries).\
-        order_by(desc("Total Reports")).limit(3).all()
+        order_by(desc("Total Reports")).limit(1).all()
  
     
-    year_metadata = [{
+    year_metadata = {
                     "Total Attacks":num_attacks[0],
-                    "Top Attack Type":top_attack_type,
+                    "Top Attack Type":top_attack_type[0],
                     "Total Fatalities":num_kill[0],
                     "Total Wounded":num_wound[0],
-                    "Top Weapon Type":top_weap_type
-    }]
+                    "Top Weapon Type":top_weap_type[0]
+    }
     
     return jsonify(year_metadata)
 
