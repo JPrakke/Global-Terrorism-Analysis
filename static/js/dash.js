@@ -87,43 +87,65 @@ const buildGauge = year => {
   });
 };
 
-
+const tbody = d3.select("tbody");
 const buildMetadata = year => {
   d3.json(`/api/v1.0/global_terror/metadata/${year}`).then((data) => {
+    tbody.html("");
 
-      const PANEL = d3.select("#year-metadata");
-      // console.log(data)
-      PANEL.html("");
+    // Next, loop through each object in the data
+    // and append a row and cells for each value in the row
+    data.forEach((dataRow) => {
+      // Append a row to the table body
+      var row = tbody.append("tr");
+  
+      // Loop through each field in the dataRow and add
+      // each value as a table cell (td)
+      Object.values(dataRow).forEach((val) => {
+        var cell = row.append("td");
+          cell.text(val);
+        }
+      );
+    });
+  })
+};
+      
+    
+    
+    
+    
+    
+    
+    // const PANEL = d3.select("#year-metadata");
+    //   // console.log(data)
+    //   PANEL.html("");
 
-    //   Object.entries(data).forEach(([key, value]) => {
-    //     console.log(value);
-    //  });
+    // //   Object.entries(data).forEach(([key, value]) => {
+    // //     console.log(value);
+    // //  });
 
-      // for(key in data){
-      //   let value = data[key]
-      //   PANEL.append("h6").text(`${key}: ${value}`)
-      //   console.log(value)
-      // }
-      // for(property in data) {
-      //   console.log(property + "=" + data[property]);
-      // }
-      /*
-      Object.entries(data).forEach(([key, value]
-        ) => {
+    //   // for(key in data){
+    //   //   let value = data[key]
+    //   //   PANEL.append("h6").text(`${key}: ${value}`)
+    //   //   console.log(value)
+    //   // }
+    //   // for(property in data) {
+    //   //   console.log(property + "=" + data[property]);
+    //   // }
+    //   /*
+    //   Object.entries(data).forEach(([key, value]
+    //     ) => {
 
           
 
-      });
-      */
-      let arr1 = Object.keys(data)
-      let arr = Object.values(data)
-      console.log(arr[0])
-      PANEL.append("h6").text(`${arr1[0]}:${arr[0]['Total Reports']}`);
+    //   });
+    //   */
+    //   let arr1 = Object.keys(data)
+    //   let arr = Object.values(data)
+    //   console.log(arr[0])
+    //   PANEL.append("h6").text(`${arr1[0]}:${arr[0]['Total Reports']}`);
 
-      // console.log(arr[1])
+    //   // console.log(arr[1])
 
-    });
-  }
 
 
 function init() {
@@ -144,13 +166,13 @@ function init() {
     // Use the first sample from the list to build the initial plots
     let firstYear = data[0];
     // buildGauge(firstYear)
-    // buildMetadata(firstYear);
+    buildMetadata(firstYear);
   });
 }
 function optionChanged(newYear) {
     // Fetch new data each time a new sample is selected
     // buildCharts(newYear);
-    // buildMetadata(newYear);
+    buildMetadata(newYear);
     // buildGauge(newYear)
   }
 
