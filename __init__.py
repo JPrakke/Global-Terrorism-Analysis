@@ -9,7 +9,7 @@ from sqlalchemy import create_engine, func, desc
 from sqlalchemy.pool import StaticPool
 
 #Set up the database
-#source activate Project3ENV
+#Pip install requirements.txt, open python environment
 
 connection_string = (f"{username}:{password}@127.0.0.1:3306/global_terrorism_db")
 
