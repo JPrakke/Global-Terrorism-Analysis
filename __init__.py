@@ -50,7 +50,7 @@ general_queries =[
 
 weap_queries =[
     GTD.weaptype1_txt, 
-    GTD.weapsubtype2_txt
+    GTD.weaptype2_txt
     ]
 
 # Routing

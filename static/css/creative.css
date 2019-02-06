@@ -24,6 +24,11 @@ hr.light {
   border-color: #fff;
 }
 
+hr.table{
+  max-width: 500px;
+  border-width: 1px;
+  border-color: #19486A;
+}
 a {
   color: #F05F40;
   -webkit-transition: all 0.2s;
@@ -379,7 +384,7 @@ html {
 
 .panel {
   margin-bottom: 20px;
-  background-color: #1A476C;
+  background-color: #42545F;
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -675,26 +680,26 @@ html {
 }
 
 .panel-primary {
-  border-color: #337ab7
+  border-color: #1A476C
 }
 
 .panel-primary>.panel-heading {
   color: #fff;
-  background-color: #337ab7;
-  border-color: #337ab7
+  background-color: #1A476C;
+  border-color: #1A476C
 }
 
 .panel-primary>.panel-heading+.panel-collapse>.panel-body {
-  border-top-color: #337ab7
+  border-top-color: #1A476C
 }
 
 .panel-primary>.panel-heading .badge {
-  color: #337ab7;
+  color: #1A476C;
   background-color: #fff
 }
 
 .panel-primary>.panel-footer+.panel-collapse>.panel-body {
-  border-bottom-color: #337ab7
+  border-bottom-color: #1A476C
 }
 
 .panel-success {
