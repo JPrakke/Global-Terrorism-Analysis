@@ -1,116 +1,98 @@
 
-console.log("Scripit Initializing..");
+function createMap(attack) {
 
-const APIUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
-const plateUrl = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json"
-
-const magColor = d=>{
-    return d>5 ? "#FF0000"
-         : d>4 ? "#FF9900"
-         : d>3 ? "#FFBB00"
-         : d>2 ? "#BBFF00"
-         : d>1 ? "#99FF00"
-         :"#00FF00";
-};
-
-const makeMap = earthquake=>{
-    
-    const satMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-    maxZoom: 18,
-    id: "mapbox.satellite",
-    accessToken: API_KEY
+    // Create the tile layer that will be the background of the map
+    var streetmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
+        attribution: "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"http://mapbox.com\">Mapbox</a>",
+        maxZoom: 18,
+        id: "mapbox.streets",
+        accessToken: API_KEY
     });
 
-    const streetMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-    maxZoom: 18,
-    id: "mapbox.streets",
-    accessToken: API_KEY
-    });
-    
-    const outdoorMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-    maxZoom: 18,
-    id: "mapbox.outdoors",
-    accessToken: API_KEY
-    });
-    
-    const baseMap = {
-        "Satelite Map": satMap,
-        "Street Map": streetMap,
-        "Outdoor Map": outdoorMap
+    // Create a baseMaps object to hold the streetmap layer
+    var baseMaps = {
+        "Street Map": streetmap
     };
 
-    const tectonicPlates = L.layerGroup([]);
-    d3.json(plateUrl, d=>{
-        L.geoJSON(d.features,{
-            style:geoJsonFeature =>{
-                return{
-                    weight:2.5,
-                    color:magColor(4)
-                };
-            }
-        }).addTo(tectonicPlates);
-    });
-
-    const overlay = {
-        "Earthquakes":earthquake,
-        "Tectonic Lines":tectonicPlates
+    // Create an overlayMaps object to hold the bikeStations layer
+    var overlayMaps = {
+        "Attack": attack
     };
 
-    const map = L.map("map",{
-        center:[0,0],
+    // Create the map object with options
+    var map = L.map("map", {
+        center: [0, 0],
         zoom: 2,
-        layers: [satMap,earthquake, tectonicPlates]
+        layers: [streetmap, attack]
     });
-    
-    L.control.layers(baseMap,overlay,{
+
+    // Create a layer control, pass in the baseMaps and overlayMaps. Add the layer control to the map
+    L.control.layers(baseMaps, overlayMaps, {
         collapsed: false
     }).addTo(map);
-  
-    const legend = L.control({position: "bottomright"});
-    legend.onAdd = map => {
-        let div = L.DomUtil.create("div", "legend"),
-        mag = [0, 1, 2, 3, 4, 5];
-        div.innerHTML +="<p>Magnitude</p>"
-        
-        for (i=0;i<mag.length;i++){
-            div.innerHTML += '<i style="background:' + magColor(mag[i] + 1) + '"></i> ' +
-            mag[i] + (mag[i + 1] ? '&ndash;' + mag[i + 1] + '<br>' : '+');
-        }
+}
 
-    return div;
-    };
-    legend.addTo(map);
-};
+function createMarkers(response) {
 
-const makeAssets = eqData=>{
-    const makeMarker = (feature, loc)=>{
-        let radius = feature.properties.mag;
-        const circleAttributes = {
-            fillOpacity: 0.5,
-            weight: 0.5,
+    function createCircles(feature, location) {
+        var kills = feature.nkill;
+        // set features of points
+        var markerFeatures = {
+            fillOpacity: 0.75,
+            color: magColor(kills),
             stroke: true,
-            radius: radius*2.5,
-            color: magColor(radius),
-            fillColor: magColor(radius)
-        };
-        return L.circleMarker(loc,circleAttributes); 
+            weight: .5,
+            fillColor: magColor(kills),
+            radius: kills * 3
+        }
+        return L.circleMarker(location, markerFeatures);
+
+
     };
-    const toolTip = (feature, layer)=>{
-        let mag = feature.properties.mag;
-        let loc = feature.properties.place;
-        layer.bindPopup(`<h2>${loc}</h2><hr><h3>Magnitude: ${mag}</h3>`)
-    }
-    const earthquakes = L.geoJSON(eqData,{
-        pointToLayer: makeMarker,
+
+    function toolTip(feature, layer) {
+        var casualty = feature.nkill
+        var place = feature.country_txt
+        layer.bindPopup("<h2>" + place + "</h2> <hr> <h3>Casualty: " + casualty + "</h3>")
+    };
+
+
+
+
+    var attacks = L.geoJSON(response, {
+        pointToLayer: createCircles,
         onEachFeature: toolTip
     });
 
-    makeMap(earthquakes)
+
+    createMap(attacks);
+}
+
+// magnitude color
+function magColor(d) {
+    return d > 5 ? '#F06B6B' :
+        d > 4 ? '#F0A76B' :
+            d > 3 ? '#F3BA4D' :
+                d > 2 ? '#F3DB4D' :
+                    d > 1 ? '#E1F34D' :
+                        "#B7F34D";
 };
 
-d3.json(APIUrl, makeAssets);
+// Perform an API call to the USGS API to get features information. 
 
-console.log("Script Complete");
+function buildMarkers(year, weaponType) {
+    d3.json(`/api/v1.0/global_terror/${year}/${weaponType}`, function (data) {
+
+        var PANEL = d3.select("#year-metadata");
+        console.log(data);
+        PANEL.html("");
+
+        var location = Object.entries(data).forEach(([key, value]) => {
+            let lat = value["latitude"]
+            let long = value["longitude"]
+            return location[lat, long]
+        });
+        console.log(data.features);
+        createMarkers(data.features);
+    });
+}
