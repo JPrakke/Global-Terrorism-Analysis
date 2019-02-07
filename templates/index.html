@@ -98,8 +98,6 @@
       </div>
       <div class="container mx-auto">
           <div class="row">
-          </div>
-          <div class="row">
             <div class="col-md-3">
               <div class="well well-sm">
                 <h5 class="text-white">Select Year:</h5>
@@ -113,23 +111,23 @@
               </div>
             </div>
             <div class="col-md-5">
-              <div id="pie"></div>
+              <div class="chart-gauge"></div>
             </div>
-            <div class="col-md-5">
-              <div id="gauge"></div>
+            <div class="col-md-9">
+              <div id="map"></div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div id="bubble"></div>
+        <!-- <div class="row">
+          <div class="col-md-6">
+            <div id="map"></div>
           </div>
-        </div>
+        </div> -->
     
 
             <!-- Map A -->
 
-            <div class="col-md-12", id="map">
+        
 
             <div ></div>      
            
@@ -255,13 +253,20 @@
   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
   crossorigin=""></script>
   <!-- D3 -->
-  <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+  <script type="text/javascript" src="https://d3js.org/d3.v5lll.min.js"></script>
 
   <!-- Logic Core JS -->
   
   <script type="text/javascript" src="../static/js/settings.js"></script>
   <script type="text/javascript" src="../static/js/dash.js"></script>
+  <!-- <script type="text/javascript" src="../static/js/gaugeTest.js"></script> -->
+  <script type="text/javascript">
+    setInterval(function(){
+      needle.moveTo(Math.random());
+    }, 5000);
+  </script>
   <script type="text/javascript" src="../static/js/logic.js"></script>
+  <script type="texr/javascript" src="../static/js/leaflet-heatmap.js"></script>
   
   <!-- <script src="../static/js/weapon.js"></script> -->
  
