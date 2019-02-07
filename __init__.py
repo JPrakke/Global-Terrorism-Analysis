@@ -107,6 +107,11 @@ def meta_data(year):
         filter(GTD.iyear == year).\
         group_by(*weap_queries).\
         order_by(desc("Total Reports")).limit(1).all()
+    
+    weapon_types = session.query(GTD.weaptype1_txt,
+        func.sum(GTD.nkill).label("fatalities")).\
+            filter(GTD.iyear == year).\
+            group_by(GTD.weaptype1_txt).all()
  
     
     year_metadata = {
@@ -114,7 +119,8 @@ def meta_data(year):
                     "Top Attack Type":top_attack_type[0],
                     "Total Fatalities":num_kill[0],
                     "Total Wounded":num_wound[0],
-                    "Top Weapon Type":top_weap_type[0]
+                    "Top Weapon Type":top_weap_type[0],
+                    "content":weapon_types
     }
     
     return jsonify(year_metadata)
@@ -133,8 +139,7 @@ def w_y(year,weaptype):
     """ json of data by year and weapon type """
     results = session.query(*general_queries).\
         filter(GTD.iyear == year).\
-        filter(GTD.weaptype1_txt == weaptype).\
-        filter((GTD.weaptype2_txt == weaptype)|(GTD.weapsubtype2_txt != weaptype)).all()
+        filter((GTD.weaptype1_txt == weaptype)|(GTD.weaptype2_txt == weaptype)).all()
     
     return jsonify(results)
 

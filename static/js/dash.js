@@ -62,7 +62,7 @@ const buildGauge = year =>{
         l: 1,
         r: 1,
         b: 0,
-        t: 25,
+        t: 75,
         pad: 1
       },
       shapes: [
@@ -76,8 +76,8 @@ const buildGauge = year =>{
         }
       ],
       title: "<b>Average Global Happiness</b>",
-      height: 150,
-      width: 255,
+      height: 250,
+      width: 350,
       xaxis: {
         zeroline: false,
         showticklabels: false,
@@ -136,17 +136,20 @@ function init() {
     });
     
     let firstYear = data[0];
-    setTimeout(buildMetadata,500,firstYear);
-    setTimeout(makeAssets, 100 ,firstYear,'Firearms');
+    setTimeout(buildMetadata,1000,firstYear);
+    setTimeout(makePie,2000,firstYear);
+    setTimeout(buildGauge, 3000, firstYear);
   });
 }
 function optionChanged(newYear) {
-    d3.select("#gauge").html("");
+   
+    d3.select("#pieChart").html("");
     if(newYear>2004){
-      buildGauge(newYear)
+      d3.select("#gauge").html("");
+      setTimeout(buildGauge, 1, newYear);
     }
-    setTimeout(buildMetadata,500,newYear);
-    setTimeout(makeAssets, 150 ,newYear,'Firearms');
+    setTimeout(buildMetadata,1000,newYear);
+    setTimeout(makePie,2000,newYear);
     
 };
 
