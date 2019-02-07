@@ -13,6 +13,7 @@
   
   <!-- Plotly -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script type="text/javascript" src="../static/js/heatmap.js"></script>
 
   <!-- Bootstrap core CSS -->
   <link href="../static/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -28,7 +29,6 @@
 
   <!-- Custom styles for this template -->
   <link href="../static/css/creative.css" rel="stylesheet">
-
 
    <!-- leaflet css -->
    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
@@ -112,14 +112,14 @@
             <h2 class="section-heading" style="color: #363B3E"><strong>Data Traversal</strong></h2>
             <hr class="light my-4">
           </div>
-          <div class = "col-md-5">
+          <div class = "col-md-4">
             <div id="gauge"></div>
           </div>
         </div>
       </div>
       <div class="container mx-auto">
           <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-4">
               <div class="well well-sm">
                 <h5 class="text-white">Select Year:</h5>
                 <select id="selDataset" class="text-white" style="background-color: #415360" onchange="optionChanged(this.value)"></select>
@@ -131,11 +131,13 @@
                 <div id="year-metadata" class="panel-body text-white"></div>
               </div>
             </div>
-            <div class="col-md-5">
-              <div id="pieChart"></div>
-            </div>
-            <div class="col-md-9">
+            <div class="col-md-8" id="mapbox">
               <div id="map"></div>
+            </div>
+          </div>
+          <div class ="row">
+            <div class="col-md-4">
+              <div id="pieChart"></div>
             </div>
           </div>
         </div>
@@ -245,11 +247,11 @@
 
   <!-- Logic Core JS -->
   <script type="text/javascript" src="../static/js/settings.js"></script>
+  
   <script type="text/javascript" src="../static/js/dash.js"></script>
-  <script type="text/javascript" src="../static/js/logic.js"></script>
   <script type="texr/javascript" src="../static/js/leaflet-heatmap.js"></script>
   <script src="../static/js/d3pie.min.js"></script>
-  <script src="../static/js/weapon-chart.js"></script>
+  
 
   <!-- Bootstrap core JavaScript -->
   <script type="text/javascript" src="../static/vendor/jquery/jquery.min.js"></script>
