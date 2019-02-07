@@ -133,14 +133,18 @@ function init() {
     
     // Use the first sample from the list to build the initial plots
     let firstYear = data[0];
-    buildMetadata(firstYear);
+    // buildMetadata(firstYear);
+    makeAssets(firstYear, "Firearms");
+    // makeMap();
   });
 }
 function optionChanged(newYear) {
   // Fetch new data each time a new sample is selected
     // buildCharts(newYear);
-    buildMetadata(newYear);
+    // buildMetadata(newYear);
+    makeAssets(newYear, "Firearms");
     // buildGauge(newYear);
+    // makeMap();
 };
 
 init();
