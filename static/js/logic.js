@@ -61,6 +61,21 @@ const makeMap = attacks=>{
 
 };
 
-const makeAssets = atkData=>{
-    
-};
+// Perform an API call to the USGS API to get features information. 
+
+function buildMarkers(year, weaponType) {
+    d3.json(`/api/v1.0/global_terror/${year}/${weaponType}`, function (data) {
+
+        var PANEL = d3.select("#year-metadata");
+        console.log(data);
+        PANEL.html("");
+
+        var location = Object.entries(data).forEach(([key, value]) => {
+            let lat = value["latitude"]
+            let long = value["longitude"]
+            return location[lat, long]
+        });
+        
+    });
+    createMarkers(data.location);
+}
