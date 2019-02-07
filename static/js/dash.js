@@ -1,96 +1,103 @@
-// const buildGauge = year =>{
-//   // Enter the washing frequency between 0 and 180
-//   d3.json(`/api/v1.0/happiness/${year}`).then(d=>{
-//     let ts2 = Object.values(d);
-  
-//     var level = parseFloat(ts2) * 20;
-//     console.log(level);
-//     // Trig to calc meter point
-//     var degrees = 180 - level;
-//     var radius = 0.5;
-//     var radians = (degrees * Math.PI) / 180;
-//     var x = radius * Math.cos(radians);
-//     var y = radius * Math.sin(radians);
-  
-//     // Path: may have to change to create a better triangle
-//     var mainPath = "M -.0 -0.05 L .0 0.05 L ";
-//     var pathX = String(x);
-//     var space = " ";
-//     var pathY = String(y);
-//     var pathEnd = " Z";
-//     var path = mainPath.concat(pathX, space, pathY, pathEnd);
-  
-//     var data = [
-//       {
-//         type: "scatter",
-//         x: [0],
-//         y: [0],
-//         marker: { size: 12, color: "850000" },
-//         showlegend: false,
-//         name: "Freq",
-//         text: level,
-//         hoverinfo: "text+name"
-//       },
-//       {
-//         values: [50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50],
-//         rotation: 90,
-//         text: ["8-9", "7-8", "6-7", "5-6", "4-5", "3-4", "2-3", "1-2", "0-1", ""],
-//         textinfo: "text",
-//         textposition: "inside",
-//         marker: {
-//           colors: [
-//             "rgba(0, 105, 11, .5)",
-//             "rgba(10, 120, 22, .5)",
-//             "rgba(14, 127, 0, .5)",
-//             "rgba(110, 154, 22, .5)",
-//             "rgba(170, 202, 42, .5)",
-//             "rgba(202, 209, 95, .5)",
-//             "rgba(210, 206, 145, .5)",
-//             "rgba(232, 226, 202, .5)",
-//             "rgba(240, 230, 215, .5)",
-//             "rgba(255, 255, 255, 0)"
-//           ]
-//         },
-//         labels: ["8-9", "7-8", "6-7", "5-6", "4-5", "3-4", "2-3", "1-2", "0-1", ""],
-//         hoverinfo: "label",
-//         hole: 0.5,
-//         type: "pie",
-//         showlegend: false
-//       }
-//     ];
-  
-//     var layout = {
-//       shapes: [
-//         {
-//           type: "path",
-//           path: path,
-//           fillcolor: "850000",
-//           line: {
-//             color: "850000"
-//           }
-//         }
-//       ],
-//       title: "<b>Belly Button Washing Frequency</b> <br> Scrubs per Week",
-//       height: 500,
-//       width: 500,
-//       xaxis: {
-//         zeroline: false,
-//         showticklabels: false,
-//         showgrid: false,
-//         range: [-1, 1]
-//       },
-//       yaxis: {
-//         zeroline: false,
-//         showticklabels: false,
-//         showgrid: false,
-//         range: [-1, 1]
-//       }
-//     };
-  
-//     var GAUGE = document.getElementById("gauge");
-//     Plotly.newPlot(GAUGE, data, layout);
-//   });
-// };
+const buildGauge = year =>{
+  d3.json(`/api/v1.0/happiness/${year}`).then(d=>{
+    let ts2 = Object.values(d);
+    let level = parseFloat(ts2) * 20;
+
+    let degrees = 180 - level;
+    let radius = 0.5;
+    let radians = (degrees * Math.PI) / 180;
+    let x = radius * Math.cos(radians);
+    let y = radius * Math.sin(radians);
+
+    let mainPath = "M -.0 -0.05 L .0 0.05 L ";
+    let pathX = String(x);
+    let space = " ";
+    let pathY = String(y);
+    let pathEnd = " Z";
+    let path = mainPath.concat(pathX, space, pathY, pathEnd);
+
+    let data = [
+      {
+        type: "scatter",
+        x: [0],
+        y: [0],
+        marker: { size: 12, color: "85000000" },
+        showlegend: false,
+        name: "Happiness",
+        text: Number.parseFloat(ts2).toFixed(2),
+        hoverinfo: "text+name"
+      },
+      {
+        values: [50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50],
+        rotation: 90,
+        text: ["8-9", "7-8", "6-7", "5-6", "4-5", "3-4", "2-3", "1-2", "0-1", ""],
+        textinfo: "text",
+        textposition: "inside",
+        marker: {
+          colors: [
+            "rgba(0, 105, 11, .5)",
+            "rgba(10, 120, 22, .5)",
+            "rgba(14, 127, 0, .5)",
+            "rgba(110, 154, 22, .5)",
+            "rgba(170, 202, 42, .5)",
+            "rgba(202, 209, 95, .5)",
+            "rgba(210, 206, 145, .5)",
+            "rgba(232, 226, 202, .5)",
+            "rgba(240, 230, 215, .5)",
+            "rgba(255, 255, 255, 0)"
+          ]
+        },
+        labels: ["8-9", "7-8", "6-7", "5-6", "4-5", "3-4", "2-3", "1-2", "0-1", ""],
+        hoverinfo: "label",
+        hole: 0.5,
+        type: "pie",
+        showlegend: false
+      }
+    ];
+
+    let layout = {
+      paper_bgcolor:"rgba(0,0,0,0)",
+      plot_bgcolor:"rgba(0,0,0,0)",
+      margin: {
+        l: 1,
+        r: 1,
+        b: 0,
+        t: 25,
+        pad: 1
+      },
+      shapes: [
+        {
+          type: "path",
+          path: path,
+          fillcolor: "850000",
+          line: {
+            color: "850000"
+          }
+        }
+      ],
+      title: "<b>Average Global Happiness</b>",
+      height: 150,
+      width: 255,
+      xaxis: {
+        zeroline: false,
+        showticklabels: false,
+        showgrid: false,
+        range: [-1, 1]
+      },
+      yaxis: {
+        zeroline: false,
+        showticklabels: false,
+        showgrid: false,
+        range: [-1, 1]
+      }
+    };
+
+    let GAUGE = document.getElementById("gauge");
+    Plotly.newPlot(GAUGE, data, layout);
+  });
+};
+
+
 // need to look into loop implementation
 const buildMetadata = year => {
   d3.json(`/api/v1.0/global_terror/metadata/${year}`).then((data) => {
@@ -113,15 +120,12 @@ const buildMetadata = year => {
     PANEL.append("h6").html(`Total Fatalities: ${totFatal}`)
     PANEL.append("h6").html(`Total Wounded: ${totWound}`)
   })
-}     
+};     
 
 
 function init() {
-    console.log("something?");
-  // Grab a reference to the dropdown select element
   const selector = d3.select("#selDataset");
 
-  // Use the list of sample names to populate the select options
   d3.json("/years").then((data) => {
    
     data.forEach((sample) => {
@@ -131,20 +135,19 @@ function init() {
         .property("value", sample);
     });
     
-    // Use the first sample from the list to build the initial plots
     let firstYear = data[0];
-    // buildMetadata(firstYear);
-    makeAssets(firstYear, "Firearms");
-    // makeMap();
+    setTimeout(buildMetadata,500,firstYear);
+    setTimeout(makeAssets, 100 ,firstYear,'Firearms');
   });
 }
 function optionChanged(newYear) {
-  // Fetch new data each time a new sample is selected
-    // buildCharts(newYear);
-    // buildMetadata(newYear);
-    makeAssets(newYear, "Firearms");
-    // buildGauge(newYear);
-    // makeMap();
+    d3.select("#gauge").html("");
+    if(newYear>2004){
+      buildGauge(newYear)
+    }
+    setTimeout(buildMetadata,500,newYear);
+    setTimeout(makeAssets, 150 ,newYear,'Firearms');
+    
 };
 
-init();
+init()

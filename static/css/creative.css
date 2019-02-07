@@ -21,7 +21,7 @@ hr {
 }
 
 hr.light {
-  border-color: #fff;
+  border-color: #363B3E;
 }
 
 hr.table{
@@ -57,7 +57,7 @@ h6 {
 }
 
 .text-faded {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgb(255, 255, 255);
 }
 
 section {

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="shortcut icon" type="image/x-icon" href="../static/assets/bookmark_icon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn2.iconfinder.com/data/icons/education-83/512/globe_honor_laurel_wreath_education_science-512.png">
 
   <title>Global Terrorism Analysis</title>
   
@@ -16,7 +16,6 @@
 
   <!-- Bootstrap core CSS -->
   <link href="../static/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
   <!-- Custom fonts for this template -->
   <link href="../static/vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
@@ -84,14 +83,21 @@
     <div class="container my-auto">
       <div class="row">
         <div class="col-lg-10 mx-auto">
-          <h1 class="text-uppercase" style="color: white; opacity: 2;">
-            <strong>Guns are not the biggest killer</strong>
-          </h1>
+          <h2>
+            <strong><q>A gun is no more dangerous than a cricket bat in the hands of a madman.</q></strong>
+          </h2>
           <hr>
           <div class="col-lg-8 mx-auto">
-            <p class="text-faded mb-5" style=font-size:25px;>By analyzing major terrorist attacks around the world, we set out to create an interactive visual experience of the weapons that cause
-              the most fatalities around the world to prove the point that even if guns were completely banned, there are still more dangerous forms of weapon.
-            </p>
+            <h5 class="mb-5">
+              <b>
+              By analyzing major terrorist attacks around the world, 
+              we set out to create an interactive visual experience 
+              of the weapons that cause the most fatalities around 
+              the world to demonstrate our hypothesis that regardless 
+              of whether firearms were totally prohibited, there are 
+              still more dangerous forms of weapons.
+              </b>
+            </h5>
           </div>
           <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Explore the Data</a>
           <a class="btn btn-primary btn-xl js-scroll-trigger" href="#disclaimer">View disclaimer</a>
@@ -103,8 +109,11 @@
       <div class="container my-auto">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading text-white">Data Traversal</h2>
+            <h2 class="section-heading" style="color: #363B3E"><strong>Data Traversal</strong></h2>
             <hr class="light my-4">
+          </div>
+          <div class = "col-md-5">
+            <div id="gauge"></div>
           </div>
         </div>
       </div>
@@ -123,7 +132,7 @@
               </div>
             </div>
             <div class="col-md-5">
-              <div id="gauge"></div>
+              <div id="pieChart"></div>
             </div>
             <div class="col-md-9">
               <div id="map"></div>
@@ -142,24 +151,17 @@
         
 
             <div ></div>      
-           
-
-            <!-- <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a> -->
             </div>
           </div>
-
         </div>
       </div>
     </div>
   </section>
-<!----------------------------------- testing ------------------------------------->
-
-<!----------------------------------- testing ------------------------------------->
   <section id="services">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading">Synopsis</h2>
+          <h2 class="section-heading"><strong>Synopsis</strong></h2>
           <hr class="my-4">
         </div>
       </div>
@@ -170,8 +172,11 @@
           <div class="service-box mt-5 mx-auto">
             <i class="fas fa-4x fa-trash text-primary mb-3 sr-icon-1"></i>
             <h3 class="mb-3">Where is the data for 1993?</h3>
-            <p class="text-muted mb-0">The original PGIS data, upon which the 1970-1997 GTD data are based, consisted of hard-copy index cards originally. 
-              When being electronically transferred by researchers, significant data for 1993 went missing and is omitted due to this.
+            <p class="text-muted mb-0">
+                The original PGIS data, whereupon the 1970-1997 GTD information are based,
+                 consisted of hard-copy index cards originally. When being electronically 
+                 transferred by researchers, significant data for 1993 went missing and 
+                 is omitted due to this.
             </p>
           </div>
         </div>
@@ -179,9 +184,11 @@
           <div class="service-box mt-5 mx-auto">
             <i class="fas fa-4x fa-server text-primary mb-3 sr-icon-2"></i>
             <h3 class="mb-3">Database Debacles</h3>
-            <p class="text-muted mb-0">Data type for loading in MySQL, INT and DOUBLE cannot take negative.
-            <code>"Solution: INT Signed, DOUBLE signed"</code>
-            But later we did not end up using this as MySQL Data Import would give a lot of issues, and we changed the approach to using Pandas to load the data.
+            <p class="text-muted mb-0">
+              Data type for loading in MySQL, INT and DOUBLE cannot take negative.
+              <code>"Solution: INT Signed, DOUBLE signed"</code>
+              But later we did not end up using this as MySQL Data Import would give 
+              a lot of issues, and we changed the approach to using Pandas to load the data.
             </p>
           </div>
         </div>
@@ -189,17 +196,21 @@
           <div class="service-box mt-5 mx-auto">
             <i class="fas fa-4x fa-shower text-primary mb-3 sr-icon-3"></i>
             <h3 class="mb-3">Cleaning up the Data</h3>
-            <p class="text-muted mb-0">We decided to only take data from the current century (2000-2016) to help performance. 
-            </br>Entries that were missing important tools such as lattitude and longitude were removed for mapping purposes.
-          </br>After cleaning with PANDAS, the data was loaded back into mySQL with 99801 rows.</p>
+            <p class="text-muted mb-0">
+              We decided to only take data from the current century (2000-2016) to help performance. 
+              Entries that were missing important tools such as lattitude and longitude were removed for mapping purposes.
+              After cleaning with PANDAS, the data was loaded back into mySQL with 99,801 rows.
+            </p>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 text-center">
           <div class="service-box mt-5 mx-auto">
             <i class="fas fa-4x fa-calendar text-primary mb-3 sr-icon-4"></i>
             <h3 class="mb-3">Checked for Accuracy</h3>
-            <p class="text-muted mb-0">For the integrity of our data, we cross referenced our data by querying major terrorism events (September 11th, Pulse Nightclub) from our database,
-              and comparing our results to official news reports to match correct numbers.
+            <p class="text-muted mb-0">
+                For the integrity of our information, we cross-referenced our datasets by 
+                querying major terrorism events (September 11th, Pulse Nightclub, Etc.) 
+                from our database, and comparing our outcomes to official news reports to match correct values.
             </p>
           </div>
         </div>
@@ -210,75 +221,36 @@
   <section class="bg-dark text-white">
     <div class="container text-center">
       <h2 class="mb-4">Disclaimer:
-      </br>The goal of this data analysis is not to offend anyone and is done with respect to all those who have lost their lives in acts of violence, regardless of how it was caused. The goal is to paint a picture of the many tools available to cause harm.
-      <hr><p>The data is present as unbiased as possible and does not discriminate against race, religion, nor does it reflect the ideals of the developers. It is purely the numerical evidence from the data we gathered.
+      </br>The objective of this investigation isn't to affront anybody and
+       is done with the respect to all who have fallen victim to these demonstrations of 
+       viciousness, regardless of how it was caused. The goal is to illustrate the numerous 
+       tools accessible to cause harm.
+      <hr>
+      <p>
+        The information is as unprejudiced as would be prudent and does not 
+        victimize race, religion, nor does it mirror the goals of the developers. 
+        It is absolutely the numerical evidence from the information we have assembled.
       </p>
     </h2>
     </div>
   </section>
 
-  <section id="contact">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-          <h2 class="section-heading">Contact Us</h2>
-          <hr class="my-4">
-  
-        </div>
-      </div>
-      <div class="container">
-          <div class="row">
-            <div class="col" style="padding:5px; border-style:groove; border-color:lightgrey; background-color:blanchedalmond">
-              <p>Josh Prakke</p>
-              <p>Backend (Flask, API)</p>
-            <a href="https://github.com/JPrakke"><i class="fab fa-github" style="font-size:48px"></i></a>
-            <a href="https://github.com/JPrakke"><i class="fab fa-linkedin-square" style="font-size:48px"></i></a>
-            </div>
-            <div class="col" style="padding:5px; border-style:groove; border-color:lightgrey; background-color:blanchedalmond">
-              <p>Kunal Soni</p>
-              <p>Backend (mySQL, Pandas)</p>
-              <a href="https://github.com/kunal-soni"><i class="fab fa-github" style="font-size:48px"></i></a>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col" style="padding:5px; border-style:groove; border-color:lightgrey; background-color:blanchedalmond">
-              <p>Jhuelian Kyle</p>
-              <p>Frontend (HTML,CSS,JS)</p>
-              <a href="https://github.com/jhueliankg3"><i class="fab fa-github" style="font-size:48px"></i></a>
-            </div>
-            <div class="col" style="padding:5px; border-style:groove; border-color:lightgrey; background-color:blanchedalmond">
-              <p>Joel Botardo</p>
-              <p>Frontend (HTML,CSS,JS)</p>
-              <a href="https://github.com/jbotardo"><i class="fab fa-github" style="font-size:48px"></i></a>
-            </div>
-            <div class="col" style="padding:5px; border-style:groove; border-color:lightgrey; background-color:blanchedalmond">
-              <p>Timothy Sharpe</p>
-              <p>Frontend (HTML,CSS,JS)</p>
-              <a href="https://github.com/timothysharpe"><i class="fab fa-github" style="font-size:48px"></i></a>
-            </div>
-          </div>
-        </div>
-    </section>
- 
   <!-- leaflet.js -->
   <script type="text/javascript" src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
   crossorigin=""></script>
+  
   <!-- D3 -->
   <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
 
   <!-- Logic Core JS -->
-  
   <script type="text/javascript" src="../static/js/settings.js"></script>
   <script type="text/javascript" src="../static/js/dash.js"></script>
   <script type="text/javascript" src="../static/js/logic.js"></script>
   <script type="texr/javascript" src="../static/js/leaflet-heatmap.js"></script>
-  
-  <!-- <script src="../static/js/weapon.js"></script> -->
- 
-  
+  <script src="../static/js/d3pie.min.js"></script>
+  <script src="../static/js/weapon-chart.js"></script>
 
-  
   <!-- Bootstrap core JavaScript -->
   <script type="text/javascript" src="../static/vendor/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

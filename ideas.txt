@@ -1,4 +1,0 @@
-All future ideas for improving visualizations:
-
-1.) Side by side heatmaps comparing two different years, movement synced with this plug in for mapboxjs:
-https://github.com/mapbox/mapbox-gl-sync-move
