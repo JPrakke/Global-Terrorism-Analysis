@@ -124,8 +124,6 @@ const buildMetadata = year => {
 
 
 function init() {
-    console.log("something?");
-
   const selector = d3.select("#selDataset");
 
   d3.json("/years").then((data) => {
@@ -138,7 +136,8 @@ function init() {
     });
     
     let firstYear = data[0];
-    buildMetadata(firstYear);
+    setTimeout(buildMetadata,500,firstYear);
+    setTimeout(makeAssets, 100 ,firstYear,'Firearms');
   });
 }
 function optionChanged(newYear) {
@@ -146,7 +145,8 @@ function optionChanged(newYear) {
     if(newYear>2004){
       buildGauge(newYear)
     }
-    setTimeout(buildMetadata,150,newYear);
+    setTimeout(buildMetadata,500,newYear);
+    setTimeout(makeAssets, 150 ,newYear,'Firearms');
     
 };
 
