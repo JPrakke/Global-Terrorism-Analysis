@@ -90,12 +90,11 @@ function renderCircleLabels(circlesLabels, newXScale, chosenXAxis) {
 //     return circlesGroup;
 // }
 
-d3.csv("KunalEdit_GTD_New.csv").then(function (weaponData) {
+d3.json(`/api/v1.0/global_terror/${year}/${weaponType}`).then(function (weaponData) {
 
     //parse data
     weaponData.forEach(function (data) {
         data.nkill = +data.nkill;
-        data.poverty = +data.poverty;
     });
 
     var xLinearScale = xScale(weaponData, chosenXAxis);

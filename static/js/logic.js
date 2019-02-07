@@ -92,7 +92,7 @@ function buildMarkers(year, weaponType) {
             let long = value["longitude"]
             return location[lat, long]
         });
-        console.log(data.features);
-        createMarkers(data.features);
+        
     });
+    createMarkers(data.location);
 }
