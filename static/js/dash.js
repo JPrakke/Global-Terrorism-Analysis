@@ -131,6 +131,7 @@ function init() {
     
     // Use the first sample from the list to build the initial plots
     let firstYear = data[0];
+    makeAssets(firstYear, Firearms);
     // buildGauge(firstYear)
     buildMetadata(firstYear);
   });
@@ -141,6 +142,7 @@ function optionChanged(newYear) {
     // buildCharts(newYear);
     buildMetadata(newYear);
     // buildGauge(newYear)
+    makeAssets(newYear, Firearms);
   }
 
 init();

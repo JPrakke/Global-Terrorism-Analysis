@@ -1,4 +1,4 @@
-const makeMap = attacks=>{
+const makeMap = weapon => {
 
     const lightMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
         attribution: "Map data &copy; <a href='https://www.openstreetmap.org/'>OpenStreetMap</a> contributors, <a href='https://creativecommons.org/licenses/by-sa/2.0/'>CC-BY-SA</a>, Imagery © <a href='https://www.mapbox.com/'>Mapbox</a>",
@@ -24,58 +24,60 @@ const makeMap = attacks=>{
         "Street Map": outdoorMap
     };
 
-    const overlay ={
-        "Firearms":weapon
+    const overlay = {
+        "Firearms": weapon
     }
 
     const map = L.map("map", {
-        center: [0,0],
+        center: [0, 0],
         zoom: 1.3,
-        layers: [lightMap, attacks]
+        layers: [lightMap, weapon]
     });
 
+    L.control.layers(baseMap, overlay, {
+        collapsed: false
+    }).addTo(map)
+};
 
-
-    var url = "https://data.sfgov.org/resource/cuks-n6tp.json?$limit=10000";
-
-    d3.json(url, function(response) {
-
-    console.log(response);
-
-    var heatArray = [];
-
-    for (var i = 0; i < response.length; i++) {
-        var location = response[i].location;
-
-        if (location) {
-            heatArray.push([location.coordinates[1], location.coordinates[0]]);
-         }
-    }
-
-    var heat = L.heatLayer(heatArray, {
-        adius: 20,
-        blur: 35
-        }).addTo(map);
-
+const makeAssets = (year, weaponType) => {
+    d3.json(`/api/v1.0/global_terror/${year}/${weaponType}`, function (data) {
+        createMarkers(data)
     });
 
 };
 
-// Perform an API call to the USGS API to get features information. 
+function createMarkers(response) {
 
-function buildMarkers(year, weaponType) {
-    d3.json(`/api/v1.0/global_terror/${year}/${weaponType}`, function (data) {
+    function createCircles(feature, location) {
+        var kills = feature.nkill;
+        // set features of points
+        var markerFeatures = {
+            fillOpacity: 0.75,
+            color: magColor(kills),
+            stroke: true,
+            weight: .5,
+            fillColor: magColor(kills),
+            radius: kills * 3
+        }
+        return L.circleMarker(location, markerFeatures);
 
-        var PANEL = d3.select("#year-metadata");
-        console.log(data);
-        PANEL.html("");
 
-        var location = Object.entries(data).forEach(([key, value]) => {
-            let lat = value["latitude"]
-            let long = value["longitude"]
-            return location[lat, long]
-        });
-        
+    };
+
+    function toolTip(feature, layer) {
+        var casualty = feature.nkill
+        var place = feature.country_txt
+        layer.bindPopup("<h2>" + place + "</h2> <hr> <h3>Casualty: " + casualty + "</h3>")
+    };
+
+
+
+
+    var attacks = L.geoJSON(response, {
+        pointToLayer: createCircles,
+        onEachFeature: toolTip
     });
-    createMarkers(data.location);
+
+
+    createMap(attacks);
 }
