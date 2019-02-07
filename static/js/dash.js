@@ -1,24 +1,22 @@
 const buildGauge = year =>{
-  // Enter the washing frequency between 0 and 180
   d3.json(`/api/v1.0/happiness/${year}`).then(d=>{
     let ts2 = Object.values(d);
-    var level = parseFloat(ts2) * 20;
-    // Trig to calc meter point
-    var degrees = 180 - level;
-    var radius = 0.5;
-    var radians = (degrees * Math.PI) / 180;
-    var x = radius * Math.cos(radians);
-    var y = radius * Math.sin(radians);
-  
-    // Path: may have to change to create a better triangle
-    var mainPath = "M -.0 -0.05 L .0 0.05 L ";
-    var pathX = String(x);
-    var space = " ";
-    var pathY = String(y);
-    var pathEnd = " Z";
-    var path = mainPath.concat(pathX, space, pathY, pathEnd);
-  
-    var data = [
+    let level = parseFloat(ts2) * 20;
+
+    let degrees = 180 - level;
+    let radius = 0.5;
+    let radians = (degrees * Math.PI) / 180;
+    let x = radius * Math.cos(radians);
+    let y = radius * Math.sin(radians);
+
+    let mainPath = "M -.0 -0.05 L .0 0.05 L ";
+    let pathX = String(x);
+    let space = " ";
+    let pathY = String(y);
+    let pathEnd = " Z";
+    let path = mainPath.concat(pathX, space, pathY, pathEnd);
+
+    let data = [
       {
         type: "scatter",
         x: [0],
@@ -56,10 +54,10 @@ const buildGauge = year =>{
         showlegend: false
       }
     ];
-  
-    var layout = {
+
+    let layout = {
       paper_bgcolor:"rgba(0,0,0,0)",
-      plot_bgcolor:'rgba(0,0,0,0)',
+      plot_bgcolor:"rgba(0,0,0,0)",
       margin: {
         l: 1,
         r: 1,
@@ -93,11 +91,13 @@ const buildGauge = year =>{
         range: [-1, 1]
       }
     };
-  
-    var GAUGE = document.getElementById("gauge");
+
+    let GAUGE = document.getElementById("gauge");
     Plotly.newPlot(GAUGE, data, layout);
   });
 };
+
+
 // need to look into loop implementation
 const buildMetadata = year => {
   d3.json(`/api/v1.0/global_terror/metadata/${year}`).then((data) => {
@@ -125,10 +125,9 @@ const buildMetadata = year => {
 
 function init() {
     console.log("something?");
-  // Grab a reference to the dropdown select element
+
   const selector = d3.select("#selDataset");
 
-  // Use the list of sample names to populate the select options
   d3.json("/years").then((data) => {
    
     data.forEach((sample) => {
@@ -138,14 +137,11 @@ function init() {
         .property("value", sample);
     });
     
-    // Use the first sample from the list to build the initial plots
     let firstYear = data[0];
     buildMetadata(firstYear);
   });
 }
 function optionChanged(newYear) {
-  // Fetch new data each time a new sample is selected
-    // buildCharts(newYear);
     d3.select("#gauge").html("");
     if(newYear>2004){
       buildGauge(newYear)
