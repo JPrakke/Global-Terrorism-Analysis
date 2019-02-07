@@ -1,6 +1,7 @@
 ##---------------------------appfiles---------------------------##
 hold.css
 hold.html
+hold.js
 # config files
 settings.js
 settings.py
