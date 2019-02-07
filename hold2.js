@@ -1,88 +1,90 @@
-console.log("Scripit Initializing..");
-
-const APIUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson";
-const plateUrl = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json"
-
-const magColor = d=>{
-    return d>5 ? "#FF0000"
-         : d>4 ? "#FF9900"
-         : d>3 ? "#FFBB00"
-         : d>2 ? "#BBFF00"
-         : d>1 ? "#99FF00"
-         :"#00FF00";
-};
-
-const makeMap = earthquake=>{
-    
-    const satMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-    maxZoom: 18,
-    id: "mapbox.satellite",
-    accessToken: API_KEY
-    });
-
-    const streetMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-    maxZoom: 18,
-    id: "mapbox.streets",
-    accessToken: API_KEY
-    });
-    
-    const outdoorMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-    attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-    maxZoom: 18,
-    id: "mapbox.outdoors",
-    accessToken: API_KEY
-    });
-    
-    const baseMap = {
-        "Satelite Map": satMap,
-        "Street Map": streetMap,
-        "Outdoor Map": outdoorMap
-    };
-
-
-    const overlay = {
-        "Earthquakes":earthquake,
-    };
-
-    const map = L.map("map",{
-        center:[0,0],
-        zoom: 2,
-        layers: [satMap,earthquake]
-    });
-    
-    L.control.layers(baseMap,overlay,{
-        collapsed: false
-    }).addTo(map);
-};
-
-const makeAssets = eqData=>{
-    const makeMarker = (feature, loc)=>{
-        let radius = feature.properties.mag;
-        const circleAttributes = {
-            fillOpacity: 0.5,
-            weight: 0.5,
-            stroke: true,
-            radius: radius*2.5,
-            color: magColor(radius),
-            fillColor: magColor(radius)
-        };
-        return L.circleMarker(loc,circleAttributes); 
-    };
-    const toolTip = (feature, layer)=>{
-        let mag = feature.properties.mag;
-        let loc = feature.properties.place;
-        layer.bindPopup(`<h2>${loc}</h2><hr><h3>Magnitude: ${mag}</h3>`)
-    }
-    const earthquakes = L.geoJSON(eqData,{
-        pointToLayer: makeMarker,
-        onEachFeature: toolTip
-    });
-
-    makeMap(earthquakes)
-};
-
-d3.json(APIUrl, makeAssets);
-
-console.log("Script Complete");
+// console.log("script initializing.sasa..");
+// const buildGauge = year => {
+//   if (year >= 2005){
+//     d3.json(`/api/v1.0/happiness/${year}`).then((d) => {
+//       console.log(d);
+//       let level = parseFloat(d) * 20;
+//       console.log(`is ${level}`);
+//       let degrees = 180 - level;
+//       const radius = 0.5;
+//       let radians = (degrees * Math.PI) / 180;
+//       let x = radius * Math.cos(radians);
+//       let y = radius * Math.sin(radians);
+  
+//       const mainPath = "M -.0 -0.05 L .0 0.05 L ";
+//       let pathX = String(x);
+//       let space = " ";
+//       let pathY = String(y);
+//       const pathEnd = " Z";
+//       let path = mainPath.concat(pathX, space, pathY, pathEnd);
+  
+//       let data = [
+//           {
+//               type: "scatter",
+//               x: [0],
+//               y: [0],
+//               marker: { size: 12, color: "850000" },
+//               showlegend: false,
+//               name: "Freq",
+//               text: level,
+//               hoverinfo: "text+name"
+//           },
+//           {
+//           values: [50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50 / 9, 50],
+//           rotation: 90,
+//           text: ["8-9", "7-8", "6-7", "5-6", "4-5", "3-4", "2-3", "1-2", "0-1", ""],
+//           textinfo: "text",
+//           textposition: "inside",
+//           marker: {
+//               colors: [
+//               "rgba(0, 105, 11, .5)",
+//               "rgba(10, 120, 22, .5)",
+//               "rgba(14, 127, 0, .5)",
+//               "rgba(110, 154, 22, .5)",
+//               "rgba(170, 202, 42, .5)",
+//               "rgba(202, 209, 95, .5)",
+//               "rgba(210, 206, 145, .5)",
+//               "rgba(232, 226, 202, .5)",
+//               "rgba(240, 230, 215, .5)",
+//               "rgba(255, 255, 255, 0)"
+//               ]
+//           },
+//           labels: ["8-9", "7-8", "6-7", "5-6", "4-5", "3-4", "2-3", "1-2", "0-1", ""],
+//           hoverinfo: "label",
+//           hole: 0.5,
+//           type: "pie",
+//           showlegend: false
+//           }
+//       ];
+//       let layout ={
+//           shapes: [
+//               {
+//                 type: "path",
+//                 path: path,
+//                 fillcolor: "850000",
+//                 line: {
+//                   color: "850000"
+//                 }
+//               }
+//             ],
+//             title: "<b>World Happiness</b> <br> Average Per Year",
+//             height: 500,
+//             width: 500,
+//             xaxis: {
+//               zeroline: false,
+//               showticklabels: false,
+//               showgrid: false,
+//               range: [-1, 1]
+//             },
+//             yaxis: {
+//               zeroline: false,
+//               showticklabels: false,
+//               showgrid: false,
+//               range: [-1, 1]
+//             }
+//       };
+//       const GAUGE = document.getElementById("gauge");
+//       Plotly.newPlot(GAUGE, data, layout);
+//     });
+//   }
+// };

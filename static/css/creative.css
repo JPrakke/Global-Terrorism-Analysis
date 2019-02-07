@@ -793,28 +793,3 @@ html {
 .panel-danger>.panel-footer+.panel-collapse>.panel-body {
   border-bottom-color: #ebccd1
 }
-
-
-/* Gauge css */
-.chart-gauge
-{
-  width: 400px;
-  margin: 100px auto  
- } 
-.chart-filled
-{
-  fill: steelblue;
-}
-.chart-empty
-{
-  fill: #dedede;
-}
-
-.needle, .needle-center
-{
-  fill: #464A4F;
-}
-
-svg {
-  font: 10px sans-serif;
-}
