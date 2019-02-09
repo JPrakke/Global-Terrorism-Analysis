@@ -794,43 +794,8 @@ html {
   border-bottom-color: #ebccd1
 }
 
-
-.column {
-  float: left;
-  width: 25%;
-  margin-bottom: 16px;
-  padding: 0 8px;
-}
-
-
-@media screen and (max-width: 650px) {
-  .column {
-    width: 100%;
-    display: block;
-  }
-}
-
-
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-
-.container-contact {
-  padding: 0 16px;
-  color: #4D4D4D;
-}
-
-
-.container-contact::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
-  color: #4D4D4D;
-}
-
-.title {
-  color: #FFFFF5;
 }
 
 .button {
@@ -838,7 +803,7 @@ html {
   outline: 0;
   display: inline-block;
   padding: 8px;
-  background-color: #000;
+  background-color: #4d4d4d;
   text-align: center;
   cursor: pointer;
   width: 100%;
@@ -854,3 +819,295 @@ html {
   margin-left: 10px;
   background-color:  #4D4D4D;
 }
+
+/* ------------------JOEL CONTACT--------------- */
+.columnjoel {
+  float: left;
+  width: 20%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+
+@media screen and (max-width: 650px) {
+  .columnjoel {
+    width: 100%;
+    display: block;
+  }
+}
+
+.container-contentjoel {
+  padding: 0 16px;
+  background-color: #4D4D4D;
+}
+
+
+.container-contentjoel::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+  background-color: #4D4D4D;
+}
+
+
+.profilejoel {
+  position: relative;
+  float: left;
+  width:  100%;
+  height: 80%;
+  background-position: 50% 50%; 
+  background-repeat:   no-repeat;
+  background-size:     cover; 
+}
+
+.content-joel:hover .profilejoel {
+  opacity: 0.3;
+}
+
+.content-joel:hover .textjoel {
+  opacity: 1;
+}
+
+.textjoel {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+
+/* ------------------TIM CONTACT--------------- */
+.columntim {
+  float: left;
+  width: 20%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+
+@media screen and (max-width: 650px) {
+  .columntim {
+    width: 100%;
+    display: block;
+  }
+}
+
+.container-contenttim {
+  padding: 0 16px;
+  background-color: #4D4D4D;
+}
+
+
+.container-contenttim::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+  background-color: #4D4D4D;
+}
+
+
+.profiletim {
+  position: relative;
+  float: left;
+  width:  100%;
+  height: 80%;
+  background-position: 50% 50%; 
+  background-repeat:   no-repeat;
+  background-size:     cover; 
+}
+
+.content-tim:hover .profiletim {
+  opacity: 0.3;
+}
+
+.content-tim:hover .texttim {
+  opacity: 1;
+}
+
+.texttim {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+/* ------------------JOSH CONTACT--------------- */
+.columnjosh {
+  float: left;
+  width: 20%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+
+@media screen and (max-width: 650px) {
+  .columnjosh {
+    width: 100%;
+    display: block;
+  }
+}
+
+.container-contentjosh {
+  padding: 0 16px;
+  background-color: #4D4D4D;
+}
+
+
+.container-contentjosh::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+  background-color: #4D4D4D;
+}
+
+
+.profilejosh {
+  position: relative;
+  float: left;
+  width:  100%;
+  height: 80%;
+  background-position: 50% 50%; 
+  background-repeat:   no-repeat;
+  background-size:     cover; 
+}
+
+.content-josh:hover .profilejosh {
+  opacity: 0.3;
+}
+
+.content-josh:hover .textjosh {
+  opacity: 1;
+}
+
+.textjosh {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+/* ------------------KUNAL CONTACT--------------- */
+.columnkunal {
+  float: left;
+  width: 20%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+
+@media screen and (max-width: 650px) {
+  .columnkunal {
+    width: 100%;
+    display: block;
+  }
+}
+
+.container-contentkunal {
+  padding: 0 16px;
+  background-color: #4D4D4D;
+}
+
+
+.container-contentkunal::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+  background-color: #4D4D4D;
+}
+
+
+.profilekunal {
+  position: relative;
+  float: left;
+  width:  100%;
+  height: 80%;
+  background-position: 50% 50%; 
+  background-repeat:   no-repeat;
+  background-size:     cover; 
+}
+
+.content-kunal:hover .profilekunal {
+  opacity: 0.3;
+}
+
+.content-kunal:hover .textkunal {
+  opacity: 1;
+}
+
+.textkunal {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+/* ------------------JHUELIAN CONTACT--------------- */
+.columnjhuelian {
+  float: left;
+  width: 20%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+
+@media screen and (max-width: 650px) {
+  .columnjhuelian {
+    width: 100%;
+    display: block;
+  }
+}
+
+.container-contentjhuelian {
+  padding: 0 16px;
+  background-color: #4D4D4D;
+}
+
+
+.container-contentjhuelian::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+  background-color: #4D4D4D;
+}
+
+
+.profilejhuelian {
+  position: relative;
+  float: left;
+  width:  100%;
+  height: 80%;
+  background-position: 50% 50%; 
+  background-repeat:   no-repeat;
+  background-size:     cover; 
+}
+
+.content-jhuelian:hover .profilejhuelian {
+  opacity: 0.3;
+}
+
+.content-jhuelian:hover .textjhuelian {
+  opacity: 1;
+}
+
+.textjhuelian {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
