@@ -793,3 +793,64 @@ html {
 .panel-danger>.panel-footer+.panel-collapse>.panel-body {
   border-bottom-color: #ebccd1
 }
+
+
+.column {
+  float: left;
+  width: 25%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.container-contact {
+  padding: 0 16px;
+  color: #4D4D4D;
+}
+
+
+.container-contact::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+  color: #4D4D4D;
+}
+
+.title {
+  color: #FFFFF5;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.linkIcons {
+  height: 50px;
+  width: 50px;
+  margin-left: 10px;
+  background-color:  #4D4D4D;
+}

@@ -522,11 +522,11 @@ function init() {
     setTimeout(buildMetadata,1000,firstYear);
     setTimeout(makePie,2000,firstYear);
     setTimeout(buildGauge, 3000, firstYear);
-    setTimeout(makeAssets, 4000,firstYear);
+    setTimeout(makeAssets, 10000,firstYear);
   });
 }
 function optionChanged(newYear) {
-    setTimeout(makeAssets, 500,newYear);
+    setTimeout(makeAssets, 1000,newYear);
     d3.select("#map").html("");
     map.remove()
     d3.select("#mapbox").append("div")
@@ -536,9 +536,9 @@ function optionChanged(newYear) {
       d3.select("#gauge").html("");
       setTimeout(buildGauge, 1, newYear);
     }
-    setTimeout(makeAssets, 3000, newYear)
-    setTimeout(buildMetadata,1000,newYear);
-    setTimeout(makePie,2000,newYear);
+    setTimeout(makeAssets, 4000, newYear)
+    setTimeout(buildMetadata,2000,newYear);
+    setTimeout(makePie,3000,newYear);
     
 };
 
