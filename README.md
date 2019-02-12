@@ -1,5 +1,7 @@
 # Global Violence Analysis
 ---
+Heroku Deployment coming soon.
+
 
 ## rules for submitting
 ---
@@ -12,5 +14,6 @@
 2. install requirements.txt `pip install -r requirements.txt`
 3. populate a settings.py with local mysql credentials.
 4. populate settings.js with map box api credentials.
-5. run the pandas script to install data to database
-5. run __init__.py
+5. run the load_data.py script
+6. run the updateDB.sql script
+7. run __init__.py

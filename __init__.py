@@ -19,7 +19,7 @@ engine = create_engine(f'mysql://{connection_string}'
 Base = automap_base()
 Base.prepare(engine, reflect=True)
 
-GTD = Base.classes.global_terrorism_new
+GTD = Base.classes.global_terrorism
 Happiness = Base.classes.world_happiness_index
 
 session = Session(engine)
