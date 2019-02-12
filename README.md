@@ -12,4 +12,5 @@
 2. install requirements.txt `pip install -r requirements.txt`
 3. populate a settings.py with local mysql credentials.
 4. populate settings.js with map box api credentials.
+5. run the pandas script to install data to database
 5. run __init__.py
