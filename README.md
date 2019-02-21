@@ -2,12 +2,6 @@
 ---
 Heroku Deployment coming soon.
 
-
-## rules for submitting
----
-1. all files in corresponding directories ie. (style.css in static/css, .html files in /templates, etc)
-2. dont conflict and nuke repo!
-
 ## To launch web app localy
 ---
 1. create your python enviorment
