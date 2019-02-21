@@ -81,6 +81,6 @@ gtd_2k10df.to_sql(name='global_terrorism', con=engine, if_exists='append', index
 print("Global Terrorism Table created")
 print("========================================================================================")
 print("======================Thank you for running the script==================================")
-print("================Please run the provided MYSql queries provided==========================")
+print("====================Please run the MYSql queries provided===============================")
 print("=========================in database/updateDB.sql=======================================")
 print("========================================================================================")
