@@ -10,4 +10,4 @@ Heroku Deployment coming soon.
 4. populate settings.js with map box api credentials.
 5. run the load_data.py script
 6. run the updateDB.sql script
-7. run __init__.py
+7. run app.py
