@@ -1,13 +1,17 @@
-# Global Violence Analysis
+# Currently Under Construction
 ---
-Heroku Deployment coming soon.
+in process of retrofitting the Django frame work 
+in place of Flask README.md will be updated in time.
 
-## To launch web app localy
+## Global Violence Analysis
 ---
-1. create your python enviorment
-2. install requirements.txt `pip install -r requirements.txt`
-3. populate a settings.py with local mysql credentials.
-4. populate settings.js with map box api credentials.
-5. run the load_data.py script
-6. run the updateDB.sql script
-7. run app.py
+
+### To launch web app localy
+---
+1. ~~create your python enviorment~~
+2. ~~install requirements.txt `pip install -r requirements.txt`~~
+3. ~~populate a settings.py with local mysql credentials.~~
+4. ~~populate settings.js with map box api credentials.~~
+5. ~~run the load_data.py script~~
+6. ~~run the updateDB.sql script~~
+7. ~~run app.py~~
