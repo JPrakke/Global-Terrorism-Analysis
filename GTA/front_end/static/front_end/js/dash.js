@@ -245,9 +245,6 @@
   return HeatmapOverlay;
 });
 
-
-
-
 const buildGauge = year =>{
   d3.json(`/api/v1.0/happiness/${year}`).then(d=>{
     let ts2 = Object.values(d);

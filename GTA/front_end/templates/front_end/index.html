@@ -1,54 +1,41 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="shortcut icon" type="image/x-icon" href="https://cdn2.iconfinder.com/data/icons/education-83/512/globe_honor_laurel_wreath_education_science-512.png">
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'front_end/assets/bookmark_icon.png' %}">
 
   <title>Global Terrorism Analysis</title>
 
-  <!-- Plotly -->
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script type="text/javascript" src="../static/js/heatmap.js"></script>
-
-  <!-- Bootstrap core CSS -->
-  <link href="../static/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-  <!-- Custom fonts for this template -->
-  <link href="../static/vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
-    rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'
-    rel='stylesheet' type='text/css'>
-
-  <!-- Plugin CSS -->
-  <link href="../static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="../static/css/creative.css" rel="stylesheet">
-
-  <!-- leaflet css -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-    crossorigin="" />
-
-
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-    crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-    crossorigin=""></script>
-
-  <!-- Marker Cluster JS & CSS -->
-  <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'front_end/css/creative.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'front_end/vendor/bootstrap/css/bootstrap.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'front_end/vendor/fontawesome-free/css/all.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'front_end/vendor/magnific-popup/magnific-popup.css' %}">
+  
+  <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
+  <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic'>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="crossorigin="" />
   <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+  
+
+  <script type="text/javascript" src="{% static 'front_end/vendor/jquery/jquery.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'front_end/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'front_end/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'front_end/vendor/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'front_end/vendor/scrollreveal/scrollreveal.min.js' %}"></script>
+    
+  <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="crossorigin=""></script>
+  <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
 </head>
 
 
 <body id="page-top">
-
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
@@ -238,7 +225,7 @@
         <div class="columnjoel">
           <div class="content-joel">
             <div class="card">
-              <img class="profilejoel" src="../static/assets/JBotardo.jpg" alt="Joel" style="width:100%">
+              <img class="profilejoel" src="{% static 'front_end/assets/JBotardo.jpg' %}" alt="Joel" style="width:100%">
               <div class="container-contentjoel">
                 <div class="textjoel">
                   <h2><strong>Joel Botardo</strong></h2>
@@ -246,9 +233,9 @@
                   <p>HTML/CSS/Javascript</p>
                 </div>
                 <div class="linkcontainer" style="margin-left: 30px">
-                <a href="https://github.com/jbotardo"><img class="linkIcons" src="../static/assets/Github-PNG-Image.png"></a>
-                <a href="https://www.linkedin.com/in/joelbotardo/"><img class="linkIcons" src="../static/assets/linkedin.png"></a>
-                <a href="mailto:J.Botardo@gmail.com"><img class="linkIcons" src="../static/assets/email.png"></a>
+                <a href="https://github.com/jbotardo"><img class="linkIcons" src="{% static 'front_end/assets/Github-PNG-Image.png' %}"></a>
+                <a href="https://www.linkedin.com/in/joelbotardo/"><img class="linkIcons" src="{% static 'front_end/assets/linkedin.png' %}"></a>
+                <a href="mailto:J.Botardo@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/email.png' %}"></a>
               </div>
               </div>
             </div>
@@ -258,7 +245,7 @@
         <div class="columntim">
           <div class="content-tim">
             <div class="card">
-              <img class="profiletim" src="../static/assets/TSharpe.jpg" alt="Tim" style="width:100%">
+              <img class="profiletim" src="{% static 'front_end/assets/TSharpe.jpg' %}" alt="Tim" style="width:100%">
               <div class="container-contenttim">
                 <div class="texttim">
                   <h2><strong>Timothy Sharpe</strong></h2>
@@ -266,9 +253,9 @@
                   <p>HTML/CSS</p>
                 </div>
                 <div class="linkcontainer" style="margin-left: 30px">
-                <a href="https://github.com/timothysharpe"><img class="linkIcons" src="../static/assets/Github-PNG-Image.png"></a>
-                <a href="https://www.linkedin.com/in/timothy-sharpe-2b8a8b169/"><img class="linkIcons" src="../static/assets/linkedin.png"></a>
-                <a href="mailto:timothysharpe1295@gmail.com"><img class="linkIcons" src="../static/assets/email.png"></a>
+                <a href="https://github.com/timothysharpe"><img class="linkIcons" src="{% static 'front_end/assets/Github-PNG-Image.png' %}"></a>
+                <a href="https://www.linkedin.com/in/timothy-sharpe-2b8a8b169/"><img class="linkIcons" src="{% static 'front_end/assets/linkedin.png' %}"></a>
+                <a href="mailto:timothysharpe1295@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/email.png' %}"></a>
               </div>
               </div>
             </div>
@@ -278,7 +265,7 @@
         <div class="columnjosh">
           <div class="content-josh">
             <div class="card">
-              <img class="profilejosh" src="../static/assets/JPrakke.jpg" alt="Tim" style="width:100%">
+              <img class="profilejosh" src="{% static 'front_end/assets/JPrakke.jpg' %}" alt="Tim" style="width:100%">
               <div class="container-contentjosh">
                 <div class="textjosh">
                   <h2><strong>Josh Prakke</strong></h2>
@@ -287,9 +274,9 @@
                   <p>HTML/CSS/Javascript/MySQL<br>Flask/SQLAlchemy</p>
                 </div>
                 <div class="linkcontainer" style="margin-left: 30px">
-                <a href="https://github.com/JPrakke"><img class="linkIcons" src="../static/assets/Github-PNG-Image.png"></a>
-                <a href="https://www.linkedin.com/in/joshua-prakke-24a77267/"><img class="linkIcons" src="../static/assets/linkedin.png"></a>
-                <a href="mailto:JoshPrakke@gmail.com"><img class="linkIcons" src="../static/assets/email.png"></a>
+                <a href="https://github.com/JPrakke"><img class="linkIcons" src="{% static 'front_end/assets/Github-PNG-Image.png' %}"></a>
+                <a href="https://www.linkedin.com/in/joshua-prakke-24a77267/"><img class="linkIcons" src="{% static 'front_end/assets/linkedin.png' %}"></a>
+                <a href="mailto:JoshPrakke@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/email.png' %}"></a>
               </div>  
               </div>
             </div>
@@ -299,7 +286,7 @@
         <div class="columnkunal">
           <div class="content-kunal">
             <div class="card">
-              <img class="profilekunal" src="../static/assets/KSoni.jpg" alt="Kunal" style="width:100%">
+              <img class="profilekunal" src="{% static 'front_end/assets/KSoni.jpg' %}" alt="Kunal" style="width:100%">
               <div class="container-contentkunal">
                 <div class="textkunal">
                   <h2><strong>Kunal Soni</strong></h2>
@@ -307,9 +294,9 @@
                   <p>MySQL</p>
                 </div>
                 <div class="linkcontainer" style="margin-left: 30px">
-                <a href="https://github.com/kunal-soni"><img class="linkIcons" src="../static/assets/Github-PNG-Image.png"></a>
-                <a href="https://www.linkedin.com/in/kunal-soni-2a26559/"><img class="linkIcons" src="../static/assets/linkedin.png"></a>
-                <a href="mailto:Kunal.A.Soni@gmail.com"><img class="linkIcons" src="../static/assets/email.png"></a>
+                <a href="https://github.com/kunal-soni"><img class="linkIcons" src="{% static 'front_end/assets/Github-PNG-Image.png' %}"></a>
+                <a href="https://www.linkedin.com/in/kunal-soni-2a26559/"><img class="linkIcons" src="{% static 'front_end/assets/linkedin.png' %}"></a>
+                <a href="mailto:Kunal.A.Soni@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/email.png' %}"></a>
               </div>
               </div>
             </div>
@@ -319,7 +306,7 @@
         <div class="columnjhuelian">
           <div class="content-jhuelian">
             <div class="card">
-              <img class="profilejhuelian" src="../static/assets/jkyle.JPG" alt="Jhuelian" style="width:100%">
+              <img class="profilejhuelian" src="{% static 'front_end/assets/jkyle.JPG' %}" alt="Jhuelian" style="width:100%">
               <div class="container-contentjhuelian">
                 <div class="textjhuelian">
                   <h2><strong>Jhuelien Kyle</strong></h2>
@@ -327,9 +314,9 @@
                   <p>HTML/CSS/Javascript</p>
                 </div>
                 <div class="linkcontainer" style="margin-left: 30px">
-                <a href="https://github.com/jhueliankg3"><img class="linkIcons" src="../static/assets/Github-PNG-Image.png"></a>
-                <a href="https://www.linkedin.com/in/jhuelian-gasmena-a64a60125/"><img class="linkIcons" src="../static/assets/linkedin.png"></a>
-                <a href="mailto:jhueliankg3@gmail.com"><img class="linkIcons" src="../static/assets/email.png"></a>
+                <a href="https://github.com/jhueliankg3"><img class="linkIcons" src="{% static 'front_end/assets/Github-PNG-Image.png' %}"></a>
+                <a href="https://www.linkedin.com/in/jhuelian-gasmena-a64a60125/"><img class="linkIcons" src="{% static 'front_end/assets/linkedin.png' %}"></a>
+                <a href="mailto:jhueliankg3@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/email.png' %}"></a>
               </div>
               </div>
             </div>
@@ -339,33 +326,12 @@
       </div>
     <!-- </div> -->
   </section>
-  
-  
-  
-  <!-- leaflet.js -->
-  <script type="text/javascript" src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-    crossorigin=""></script>
 
-  <!-- D3 -->
-  <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
-
-  <!-- Logic Core JS -->
-  <script type="text/javascript" src="../static/js/settings.js"></script>
-  <script type="text/javascript" src="../static/js/dash.js"></script>
-  <script type="texr/javascript" src="../static/js/leaflet-heatmap.js"></script>
-  <script src="../static/js/d3pie.min.js"></script>
-
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="../static/vendor/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Plugin JavaScript -->
-  <script type="text/javascript" src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
-  <script type="text/javascript" src="../static/vendor/scrollreveal/scrollreveal.min.js"></script>
-  <script type="text/javascript" src="../static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script type="text/javascript" src="../static/js/creative.min.js"></script>
+  <script type="text/javascript" src="{% static 'front_end/js/settings.js' %}"></script>
+  <script type="text/javascript" src="{% static 'front_end/js/heatmap.js' %}"></script>
+  <script type="text/javascript" src="{% static 'front_end/js/dash.js' %}"></script>
+  <script type="text/javascript" src="{% static 'front_end/js/d3pie.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'front_end/js/creative.min.js' %}"></script>
 
 </body>
 
