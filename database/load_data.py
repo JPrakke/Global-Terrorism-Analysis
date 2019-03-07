@@ -2,25 +2,25 @@
 # in updateDB.sql
 
 import pandas as pd
-from settings import username, password
+# from settings import username, password
 from sqlalchemy import create_engine
 print("========================================================================================")
 print("================================Script Initalizing...===================================")
 print("========================================================================================")
-whi_file = "database/Data/WHI.csv"
+whi_file = "Data/WHI.csv"
 whi_df = pd.read_csv(whi_file)
 
 
-gtd_file = "database/Data/GTD.csv"
+gtd_file = "Data/GTD.csv"
 
 
 gtd_df = pd.read_csv(gtd_file, encoding = 'iso-8859-1')
 
-connection_string = (f"{username}:{password}@127.0.0.1:3306")
-engine = create_engine(f'mysql://{connection_string}',encoding='iso-8859-1', connect_args={'connect_timeout': 10})
+connection_string = "db connection string here"
+engine = create_engine(f'{connection_string}',encoding='iso-8859-1', connect_args={'connect_timeout': 10})
 
-engine.execute("CREATE DATABASE global_terrorism_db")
-engine.execute("USE global_terrorism_db")
+# engine.execute("CREATE DATABASE global_terrorism_db")
+engine.execute("USE mxtuv3eszpumt13d")
 print("Database Created")
 
 whi_df

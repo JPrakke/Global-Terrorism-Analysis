@@ -1,9 +1,9 @@
 ##---------------------------appfiles---------------------------##
 # config files
 settings.js
-settings.py
+hold.py
 
-
+##--------------------------.gitignore--------------------------###
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -121,7 +121,6 @@ venv.bak/
 # Icon must end with two \r
 Icon
 
-
 # Thumbnails
 ._*
 
@@ -184,3 +183,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+#------------------------------IDE-------------------------------#
+.vscode/
