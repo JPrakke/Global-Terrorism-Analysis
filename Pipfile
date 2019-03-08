@@ -9,6 +9,8 @@ pylint = "*"
 [packages]
 django = "*"
 mysqlclient = "*"
+jupyter = "*"
+lab = "*"
 
 [requires]
 python_version = "3.6"

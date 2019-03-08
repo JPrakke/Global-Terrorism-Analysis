@@ -28,7 +28,7 @@
 <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Hypothesis</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Home</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -36,13 +36,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">Data Traversing</a>
+            <a class="nav-link js-scroll-trigger" href="#about">Data Traversal</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Synopsis</a>
+            <a class="nav-link js-scroll-trigger" href="#services">Data Visualizations</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link js-scroll-trigger" href="#contact">Meet the Team</a>
             <!-- <li class="nav-item">
               <a class="nav-link" href="/api">API</a> -->
             </li>
@@ -57,23 +57,22 @@
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <h2>
-              <strong><q>A gun is no more dangerous than a cricket bat in the hands of a madman.</q></strong>
+              <strong>"Terrorism will spill over if you don't speak up." </br> -Malala Yousafzai</strong>
             </h2>
             <hr>
             <div class="col-lg-8 mx-auto">
               <h5 class="mb-5">
                 <b>
-                  By analyzing major terrorist attacks around the world,
-                  we set out to create an interactive visual experience
-                  of the weapons that cause the most fatalities around
-                  the world to demonstrate our hypothesis that regardless
-                  of whether firearms were totally prohibited, there are
-                  still more dangerous forms of weapons.
+                  By analyzing various acts of terrorism around the world,
+                  we decided to create an interactive dashboard to visualize
+                  worldwide acts of terrorism. Through the use of modern
+                  technology and machine learning, we have taught a machine to predict
+                  future data and acts of terrrorism, based on years of previous data.
                 </b>
               </h5>
             </div>
             <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Explore the Data</a>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#disclaimer">View disclaimer</a>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#services">Visualizations</a>
           </div>
         </div>
       </div>
@@ -87,8 +86,8 @@ Clean up / pollish
       <div class="container my-auto">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading" style="color: #363B3E"><strong>Data Traversal</strong></h2>
-            <hr class="light my-4">
+            <h2 class="data-tv-heading" style="color: rgb(255, 255, 255);">Data Traversal</h2>
+            <!-- <hr class="light my-4"> -->
           </div>
           <div class="col-md-4">
             <div id="gauge"></div>
@@ -120,16 +119,12 @@ Clean up / pollish
         </div>
       </div>
     </section>
-<!-- Data Writeup 
-
-Either delete or clean up
-
--->
+<!-- Place data visualizations/ ML Write Up Here -->
     <section id="services">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading"><strong>Synopsis</strong></h2>
+            <h2 class="section-heading"><strong>Data Visualizations</strong></h2>
             <hr class="my-4">
           </div>
         </div>
@@ -186,38 +181,7 @@ Either delete or clean up
         </div>
       </div>
     </section>
-<!-- Disclamer
-
-Possibly remove or replace with visualizations
-
--->
-    <section id="disclaimer">
-      <section class="bg-dark text-white">
-        <div class="container text-center">
-          <h2 class="mb-4">Disclaimer:
-            </br>The objective of this investigation isn't to affront anybody and
-            is done with the respect to all who have fallen victim to these demonstrations of
-            viciousness, regardless of how it was caused. The goal is to illustrate the numerous
-            tools accessible to cause harm.
-            <hr>
-            <p>
-              The information is as unprejudiced as would be prudent and does not
-              victimize race, religion, nor does it mirror the goals of the developers.
-              It is absolutely the numerical evidence from the information we have assembled.
-            </p>
-          </h2>
-        </div>
-      </section>
-    </section>
-<!-- 
-
-
-add Jean to contact me 
-maybe channge to about me
-and add a contact plugin?
-
-
- -->
+<!-- Contact Section -->
     <section id="contact">
       <div class="container">
         <div class="row">
@@ -227,7 +191,8 @@ and add a contact plugin?
           </div>
         </div>
       </div>
-      <div class="row">
+    <div class="row">
+      <div class="d-flex justify-content-center">
         <div class="columnjoel">
           <div class="content-joel">
             <div class="card">
@@ -255,7 +220,7 @@ and add a contact plugin?
                 <div class="texttim">
                   <h2><strong>Timothy Sharpe</strong></h2>
                   <p>Web Development</p>
-                  <p>HTML/CSS</p>
+                  <p>HTML/CSS/JS/Django</p>
                 </div>
                 <div class="linkcontainer" style="margin-left: 30px">
                   <a href="https://github.com/timothysharpe"><img class="linkIcons" src="{% static 'front_end/assets/Github-PNG-Image.png' %}"></a>
@@ -275,7 +240,7 @@ and add a contact plugin?
                   <h2><strong>Josh Prakke</strong></h2>
                   <p>Project Manager</p>
                   <p>Full Stack Developer</p>
-                  <p>HTML/CSS/Javascript/MySQL<br>Flask/SQLAlchemy</p>
+                  <p>HTML/CSS/Javascript/MySQL<br>Django</p>
                 </div>
                 <div class="linkcontainer" style="margin-left: 30px">
                   <a href="https://github.com/JPrakke"><img class="linkIcons" src="{% static 'front_end/assets/Github-PNG-Image.png' %}"></a>
@@ -286,6 +251,16 @@ and add a contact plugin?
             </div>
           </div>
         </div>
+      </div>
+     </div> 
+        <section id="contact2">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+              </div>
+            </div>
+          </div>
+      <div class="d-flex justify-content-center">   
         <div class="columnkunal">
           <div class="content-kunal">
             <div class="card">
@@ -324,6 +299,20 @@ and add a contact plugin?
             </div>
           </div>
         </div>
+        <div class="columnjean">
+          <div class="content-jean">
+            <div class="card">
+              <img class="profilejean" src="{% static 'front_end/assets/JCMedina.JPG' %}" alt="Jean" style="width:100%">
+              <div class="container-contentjean">
+                <div class="textjean">
+                  <h2><strong>Jean Carlos Medina</strong></h2>
+                  <p>Web Development</p>
+                  <p>HTML/CSS/Javascript</p>
+                </div>
+                <div class="linkcontainer" style="margin-left: 30px">
+                  <a href="https://github.com/JCMedinaG"><img class="linkIcons" src="{% static 'front_end/assets/Github-PNG-Image.png' %}"></a>
+                  <a href="https://www.linkedin.com/in/jcmg/"><img class="linkIcons" src="{% static 'front_end/assets/linkedin.png' %}"></a>
+                  <a href="datajcmg@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/email.png' %}"></a>
       </div>
     </section>
     
