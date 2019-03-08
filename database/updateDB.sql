@@ -31,3 +31,14 @@ VALUES
  world_happiness_index(year,life_ladder)
 VALUES
  (2004,0);
+ 
+delete from global_terrorism
+where nkill is null;
+-- 3465 rows affected
+
+delete from global_terrorism
+where nwound is null;
+-- 3635 rows affected
+
+select count(*) from global_terrorism;
+-- 92700
