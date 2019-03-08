@@ -49,6 +49,7 @@
  }
  
  .bg-primary {
+   height: 100vh !important;
    background-color: #F05F40 !important;
  }
  
@@ -66,6 +67,17 @@
  
  .section-heading {
    margin-top: 0;
+ }
+
+ .data-tv-heading {
+  color: rgb(255, 255, 255);
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  background-color: #415360;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05)
  }
  
  ::-moz-selection {
@@ -1110,4 +1122,62 @@
    transform: translate(-50%, -50%);
    -ms-transform: translate(-50%, -50%)
  }
+
+  /* ------------------JEAN CONTACT--------------- */
+  .columnjean {
+    float: left;
+    width: 20%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+  
+  
+  @media screen and (max-width: 650px) {
+    .columnjean {
+      width: 100%;
+      display: block;
+    }
+  }
+  
+  .container-contentjean {
+    padding: 0 16px;
+    background-color: #4D4D4D;
+  }
+  
+  
+  .container-contentjean::after, .row::after {
+    content: "";
+    clear: both;
+    display: table;
+    background-color: #4D4D4D;
+  }
+  
+  
+  .profilejean {
+    position: relative;
+    float: left;
+    width:  100%;
+    height: 80%;
+    background-position: 50% 50%; 
+    background-repeat:   no-repeat;
+    background-size:     cover; 
+  }
+  
+  .content-jean:hover .profilejean {
+    opacity: 0.3;
+  }
+  
+  .content-jean:hover .textjean {
+    opacity: 1;
+  }
+  
+  .textjean {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+  }
  
