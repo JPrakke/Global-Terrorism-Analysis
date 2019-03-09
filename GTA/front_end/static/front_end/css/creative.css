@@ -50,9 +50,11 @@
  
  .bg-primary {
    height: 100vh !important;
-   background-color: #F05F40 !important;
+   background-color: #4A657F !important;
  }
- 
+ .bg-secondary {
+   background-color: #1F486F !important;
+ }
  .bg-dark {
    background-color: #212529 !important;
  }
@@ -1182,4 +1184,7 @@
   }
   ::-webkit-scrollbar { 
     display: none; 
+}
+.text-white{
+  color:white !important;
 }
