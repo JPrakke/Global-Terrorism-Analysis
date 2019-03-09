@@ -13,7 +13,6 @@ def years(request):
     list = {"year":[]}
     for value in GlobalTerrorism.objects.values('iyear').distinct():
         list["year"].append(value["iyear"])
-        print(value)
     return JsonResponse(list)
 
 
@@ -38,7 +37,4 @@ def location(request, year_input):
     list = []
     for value in GlobalTerrorism.objects.values('latitude', 'longitude').filter(iyear=year_input):
         list.append(value)
-    print(list[0]['latitude'])
-    print(list[0]['longitude'])
-
     return JsonResponse(list, safe=False)

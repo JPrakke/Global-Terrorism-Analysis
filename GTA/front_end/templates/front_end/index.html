@@ -44,7 +44,7 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Meet the Team</a>
             <!-- <li class="nav-item">
-              <a class="nav-link" href="/api">API</a> -->/ Data Analyist
+              <a class="nav-link" href="/api">API</a> -->
             </li>
           </li>
           </ul>
@@ -86,17 +86,14 @@ Clean up / pollish
       <div class="container my-auto">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
-            <h2 class="data-tv-heading" style="color: rgb(255, 255, 255);">Data Traversal</h2>
-            <!-- <hr class="light my-4"> -->
-          </div>
-          <div class="col-md-4">
-            <div id="gauge"></div>
+            <h2 class="section-heading" style="color: rgb(255, 255, 255);">Data Traversal</h2>
+            <hr class="light my-4">
           </div>
         </div>
       </div>
-      <div class="container mx-auto">
+      <div class="container-fluid">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-2">
             <div class="well well-sm">
               <h5 class="text-white">Select Year:</h5>
               <select id="selDataset" class="text-white" style="background-color: #415360" onchange="optionChanged(this.value)"></select>
@@ -107,15 +104,17 @@ Clean up / pollish
               </div>
               <div id="year-metadata" class="panel-body text-white"></div>
             </div>
+            <img class="stock_image" src="{% static 'front_end/assets/bookmark_icon.png' %}" alt="globe" style="width:100%">
           </div>
-          <div class="col-md-8" id="mapbox">
+          <div class="col-md-10" id="mapbox">
             <div id="map"></div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div id="pieChart"></div>
+          <!-- <div class="row">
+            <div class="col-md-2" id="placeholder">
+              -->
+            </div>
           </div>
+ 
         </div>
       </div>
     </section>
@@ -193,6 +192,26 @@ Clean up / pollish
       </div>
     <div class="row">
       <div class="d-flex justify-content-center">
+          <div class="columnjosh">
+              <div class="content-josh">
+                <div class="card">
+                  <img class="profilejosh" src="{% static 'front_end/assets/JPrakke.jpg' %}" alt="Tim" style="width:100%">
+                  <div class="container-contentjosh">
+                    <div class="textjosh">
+                      <h2><strong>Josh Prakke</strong></h2>
+                      <p>Project Lead</p>
+                      <p>Full Stack Developer</p>
+                      <p>HTML/CSS/Javascript/MySQL/<br>Django</p>
+                    </div>
+                    <div class="linkcontainer" style="margin-left: 30px">
+                      <a href="https://github.com/JPrakke"><img class="linkIcons" src="{% static 'front_end/assets/Github-PNG-Image.png' %}"></a>
+                      <a href="https://www.linkedin.com/in/joshua-prakke-24a77267/"><img class="linkIcons" src="{% static 'front_end/assets/linkedin.png' %}"></a>
+                      <a href="mailto:JoshPrakke@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/email.png' %}"></a>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
         <div class="columnjoel">
           <div class="content-joel">
             <div class="card">
@@ -209,7 +228,7 @@ Clean up / pollish
                   <a href="mailto:J.Botardo@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/email.png' %}"></a>
                 </div>
               </div>
-          Lead
+            </div>
           </div>
         </div>
         <div class="columntim">
@@ -227,26 +246,6 @@ Clean up / pollish
                   <a href="https://www.linkedin.com/in/timothy-sharpe-2b8a8b169/"><img class="linkIcons" src="{% static 'front_end/assets/linkedin.png' %}"></a>
                   <a href="mailto:timothysharpe1295@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/email.png' %}"></a>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="columnjosh">
-          <div class="content-josh">
-            <div class="card">
-              <img class="profilejosh" src="{% static 'front_end/assets/JPrakke.jpg' %}" alt="Tim" style="width:100%">
-              <div class="container-contentjosh">
-                <div class="textjosh">
-                  <h2><strong>Josh Prakke</strong></h2>
-                  <p>Project Lead</p>
-                  <p>Full Stack Developer</p>
-                  <p>HTML/CSS/Javascript/MySQL/<br>Django</p>
-                </div>
-                <div class="linkcontainer" style="margin-left: 30px">
-                  <a href="https://github.com/JPrakke"><img class="linkIcons" src="{% static 'front_end/assets/Github-PNG-Image.png' %}"></a>
-                  <a href="https://www.linkedin.com/in/joshua-prakke-24a77267/"><img class="linkIcons" src="{% static 'front_end/assets/linkedin.png' %}"></a>
-                  <a href="mailto:JoshPrakke@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/email.png' %}"></a>
-                </div>  
               </div>
             </div>
           </div>
