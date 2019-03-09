@@ -86,14 +86,14 @@ Clean up / pollish
       <div class="container my-auto">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading" style="color: rgb(255, 255, 255);">Data Traversal</h2>
+            <h2 class="section-heading text-white"><strong>Data Traversal</strong></h2>
             <hr class="light my-4">
           </div>
         </div>
       </div>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-2">
+          <div class="col-md-2" style="padding-top:155px">
             <div class="well well-sm">
               <h5 class="text-white">Select Year:</h5>
               <select id="selDataset" class="text-white" style="background-color: #415360" onchange="optionChanged(this.value)"></select>
@@ -104,7 +104,7 @@ Clean up / pollish
               </div>
               <div id="year-metadata" class="panel-body text-white"></div>
             </div>
-            <img class="stock_image" src="{% static 'front_end/assets/bookmark_icon.png' %}" alt="globe" style="width:100%">
+            <!-- <img class="stock_image" src="{% static 'front_end/assets/bookmark_icon.png' %}" alt="globe" style="width:100%"> -->
           </div>
           <div class="col-md-10" id="mapbox">
             <div id="map"></div>
@@ -119,11 +119,11 @@ Clean up / pollish
       </div>
     </section>
 <!-- Place data visualizations/ ML Write Up Here -->
-    <section id="services">
+    <section class="bg-secondary" id="services">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading"><strong>Data Analysis</strong></h2>
+            <h2 class="section-heading"style="color: rgb(255, 255, 255);"><strong>Data Analysis</strong></h2>
             <hr class="my-4">
           </div>
         </div>
@@ -146,7 +146,7 @@ Clean up / pollish
             <param name='animate_transition' value='yes' />
             <param name='display_static_image' value='yes' />
             <param name='display_spinner' value='yes' />
-            <param name='display_overlay' value='yes' />
+            <param name='display_overlay' value='no' />
             <param name='display_count' value='yes' />
             <param name='filter' value='publish=yes' />
           </object>
@@ -155,8 +155,8 @@ Clean up / pollish
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-trash text-primary mb-3 sr-icon-1"></i>
-              <h3 class="mb-3">Where is the data for 1993?</h3>
-              <p class="text-muted mb-0">
+              <h3 class="text-white mb-3">Where is the data for 1993?</h3>
+              <p class="text-white mb-0">
                 The original PGIS data, whereupon the 1970-1997 GTD information are based,
                 consisted of hard-copy index cards originally. When being electronically
                 transferred by researchers, significant data for 1993 went missing and
@@ -167,8 +167,8 @@ Clean up / pollish
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-server text-primary mb-3 sr-icon-2"></i>
-              <h3 class="mb-3">Database Debacles</h3>
-              <p class="text-muted mb-0">
+              <h3 class="text-white mb-3">Database Debacles</h3>
+              <p class="text-white mb-0">
                 Data type for loading in MySQL, INT and DOUBLE cannot take negative.
                 <code>"Solution: INT Signed, DOUBLE signed"</code>
                 But later we did not end up using this as MySQL Data Import would give
@@ -179,8 +179,8 @@ Clean up / pollish
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-shower text-primary mb-3 sr-icon-3"></i>
-              <h3 class="mb-3">Cleaning up the Data</h3>
-              <p class="text-muted mb-0">
+              <h3 class="text-white mb-3">Cleaning up the Data</h3>
+              <p class="text-white mb-0">
                 We decided to only take data from the current century (2000-2016) to help performance.
                 Entries that were missing important tools such as lattitude and longitude were removed for mapping
                 purposes.
@@ -191,8 +191,8 @@ Clean up / pollish
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
               <i class="fas fa-4x fa-calendar text-primary mb-3 sr-icon-4"></i>
-              <h3 class="mb-3">Checked for Accuracy</h3>
-              <p class="text-muted mb-0">
+              <h3 class="text-white mb-3">Checked for Accuracy</h3>
+              <p class="text-white mb-0">
                 For the integrity of our information, we cross-referenced our datasets by
                 querying major terrorism events (September 11th, Pulse Nightclub, Etc.)
                 from our database, and comparing our outcomes to official news reports to match correct values.
@@ -203,12 +203,12 @@ Clean up / pollish
       </div>
     </section>
 <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" class="bg-primary">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading"><strong>Meet the Team</strong></h2>
-            <hr class="my-4">
+            <h2 class="section-heading text-white"><strong>Meet the Team</strong></h2>
+            <hr class="light my-4">
           </div>
         </div>
       </div>
@@ -241,7 +241,7 @@ Clean up / pollish
               <div class="container-contentjoel">
                 <div class="textjoel">
                   <h2><strong>Joel Botardo</strong></h2>
-                  <p>Web Development/Data Analyist</p>
+                  <p>Web Development & Data Analyis</p>
                   <p>HTML/CSS/<br>Machine Learning</p>
                 </div>
                 <div class="linkcontainer" style="margin-left: 30px">
@@ -260,7 +260,8 @@ Clean up / pollish
               <div class="container-contenttim">
                 <div class="texttim">
                   <h2><strong>Timothy Sharpe</strong></h2>
-                  <p>Web Development</p>
+                  <p>Typographer</p>
+                  <p>Web Developmen & Data Analysis</p>
                   <p>HTML/CSS</p>
                 </div>
                 <div class="linkcontainer" style="margin-left: 30px">
@@ -274,7 +275,7 @@ Clean up / pollish
         </div>
       </div>
      </div> 
-        <section id="contact2">
+        <section id="contact2"class="bg-primary">
           <div class="container">
             <div class="row">
               <div class="col-lg-12 text-center">
