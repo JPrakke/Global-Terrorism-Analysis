@@ -42,6 +42,9 @@
             <a class="nav-link js-scroll-trigger" href="#services">Data Analysis</a>
           </li>
           <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#summary">Data Summary</a>
+            </li>
+          <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Meet the Team</a>
             <!-- <li class="nav-item">
               <a class="nav-link" href="/api">API</a> -->
@@ -150,7 +153,14 @@ Clean up / pollish
             <param name='display_count' value='yes' />
             <param name='filter' value='publish=yes' />
           </object>
-        </div>    
+        </div>
+        <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <hr class="my-4">
+              </div>
+            </div>
+          </div>    
         <div class="row">
           <div class="col-lg-3 col-md-6 text-center">
             <div class="service-box mt-5 mx-auto">
@@ -199,6 +209,72 @@ Clean up / pollish
               </p>
             </div>
           </div>
+        </section>
+
+          <!-- Data Summary Section -->
+        <section id="summary">
+            <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 text-center">
+                    <h2 class="section-heading"><strong>Data Summary</strong></h2>
+                    <hr class="my-4">
+                  </div>
+                </div>
+              </div>
+              <div class="container">
+                  <div class="row">
+                    <div class="col-lg-12 text-left">
+                      <p>Based on our analysis of worldwide terrorism, we discovered a possible trend in casualties using machine learning and linear regression.
+                        From 2000 to 2011, acts of terrorism increased slightly over the years 2000 to 2011, but in 2012 there was a massive increase in terrorist activity. 
+                        The increase in 2012 is due to factors such as religion, economics, and political disputes. Since 2012, global terrorism has been on a rise,
+                        and the casualty count is continuing to rise year after year. Casualty is defined as a person killed or injured by a war or an accident, so our analysis
+                        includes those both wounded and killed by terrorist attacks. While the above graphs fluctuate up and down with the number of casualties, we applied the linear 
+                        regression machine learning model to train a Python program to identify a linear trend. Our model was able to find a trend line for the number wounded with 
+                        ~71% accuracy, and a trend line for the number killed with ~75% accuracy. Both trend lines appear as the dotted lines in the graph above. The important thing
+                        to note is while 2016 is lower than 2015 in terms of number of casualties, the trend line is predicting these counts to rise, based on years of past data.  
+                      </p>
+                    </div>
+                  </div>
+                </div>
+          <div class="container">
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <hr class="my-4">
+                  <h2 class="section-heading"><strong><i class="fas fa-2x fa-chart-line"></br>What started the spike in terrorism from 2012-2016?</i></strong></h2>
+                  <div class="container">
+                      <div class="row">
+                        <div class="col-lg-12 text-left">
+                  <p>Starting in 2012, there is a massive spike in the number of recored terrorist events worldwide. From 4941 attacks in 2011, to almost double in
+                    that amount (8077) in 2012. <a href='https://www.state.gov/j/ct/rls/crt/2012/209983.htm'>According to the U.S. Department of State, 
+                     in 2012 the al-Qa'ida core in Afghanistan and Pakistan was severly weakened.</a>
+                    However, operating out of safe havens, they were able to form close ties with other major terrorist sects such as the Taliban, and began to aggressively
+                    spread operations across southern and central Asia. 
+                    <p>In other regions, a large contribution to this massive increase starting in 2012 comes from Greece of 
+                    all places, where anarchists began to carry out terrorist attacks on political targets and sites as the economy of Greece continued to spiral out of control.
+                    <a href='https://www.state.gov/j/ct/rls/crt/2012/209981.htm'>The U.S. Department of State claims 226 attacks in Greece in November alone,</a> while 
+                    <a href='https://www.reuters.com/article/us-greece-anarchists-specialreport/special-report-inside-greeces-violent-new-anarchist-groups-idUSBRE97D0AK20130814'>Reuters</a>
+                    reports 527 arson and bomb attacks in 2012 for Greece alone. From 1974 to 1986, Greece had a reported 542 arson and bomb attacks for that 12 year span. For the massive
+                    spike in 2012-2016, a large amount of that can be pointed at Greece, as its anarchist revolution over the failing economy really took off in 2012.</p>
+                    <p>In Colombia in 2012,
+                    clashing between the government and Revolutionary Armed Forces of Colmbia (FARC) greatly intensified. Even a temporary ceasefire from November of 2012 to January of 2013
+                    did not slow down the rapid growth of attacks, with <a href='https://www.state.gov/j/ct/rls/crt/2012/209984.htm'>the U.S. Department of State</a> reporting
+                    a 52% increase in attacks over 2011. Most of the attacks were carried out on political sites, police stations, or the military; however, a significant amount
+                    amount of casualties were civilian. This 52% increase is another factor in our spike from 2012-2016, and continuing political disputes between FARC and the Colombian government
+                    have only lead to increasing acts of terrorism in South America.</p>
+                  </p>
+                </div>
+              </div>
+            </div> 
+            </div>
+            </div>
+          </div>
+            <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 text-center">
+                    <hr class="my-4">
+                  </div>
+                </div>
+              </div>    
         </div>          
       </div>
     </section>
@@ -260,9 +336,9 @@ Clean up / pollish
               <div class="container-contenttim">
                 <div class="texttim">
                   <h2><strong>Timothy Sharpe</strong></h2>
+                  <p>Web Development</p>
+                  <p>HTML/CSS/Data Analyst</p>
                   <p>Typographer</p>
-                  <p>Web Developmen & Data Analysis</p>
-                  <p>HTML/CSS</p>
                 </div>
                 <div class="linkcontainer" style="margin-left: 30px">
                   <a href="https://github.com/timothysharpe"><img class="linkIcons" src="{% static 'front_end/assets/Github-PNG-Image.png' %}"></a>
