@@ -245,8 +245,8 @@
   return HeatmapOverlay;
 });
 
-const makeAssets = year=>{
-  d3.json(`/api/coord/${year}`).then(data =>{
+const makeAssets = (year,group) =>{
+  d3.json(`/api/coord/${year}/${group}`).then(data =>{
       let ts1 = Object.values(data)
       let markCoords = []
       for(i=0; i<ts1.length; i++){
@@ -262,7 +262,8 @@ const makeAssets = year=>{
       };
       const baseLayer = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
           attribution: "Map data &copy; <a href='https://www.openstreetmap.org/'>OpenStreetMap</a> contributors, <a href='https://creativecommons.org/licenses/by-sa/2.0/'>CC-BY-SA</a>, Imagery © <a href='https://www.mapbox.com/'>Mapbox</a>",
-          minZoom: 1.25,
+          minZoom:2,
+          maxZoom:3,
           id: "mapbox.light",
           accessToken: API_KEY
       });
@@ -287,15 +288,15 @@ const makeAssets = year=>{
       var heatmaplayer = new HeatmapOverlay(cfg);
       var map = new L.map("map",{
           center: [0,0],
-          zoom: 2.0,
+          zoom:2.49,
           layers: [baseLayer, heatmaplayer]
       });
       heatmaplayer.setData(testData)  
   });  
 };
 
-const buildMetadata = year => {
-  d3.json(`/api/metadata/${year}`).then((data) => {
+const buildMetadata = (year, group) => {
+  d3.json(`/api/metadata/${year}/${group}`).then((data) => {
     const panel = d3.select("#year-metadata");
     panel.html("");
     Object.entries(data).forEach(([key,value])=>{
@@ -307,35 +308,33 @@ const buildMetadata = year => {
 
 function init() {
   let selector = d3.select("#selDataset");
-  d3.json("api/years").then((data) => {
+  let gSelector = d3.select("#selGroup")
+  d3.json("api/populate").then((data) => {
     for(i=0;i<data['year'].length; i++){
       selector
         .append("option")
         .text(data['year'][i])
         .property("value",data['year'][i]);
     } 
-    let firstYear = data['year'][0];
-      buildMetadata(firstYear);
-      makeAssets(firstYear);
-  });
-}
-let gSelector = d3.select("#selGroup");
-  d3.json("api/groups").then((data) => {
-    for(i=0;i<data.length; i++){
+    for(i=0;i<data['group'].length; i++){
       gSelector
         .append("option")
-        .text(data[i])
-        .property("value",data);
+        .text(data['group'][i])
+        .property("value1",data['group'][i]);
     } 
-    let baseGroup = data;
+    let firstGroup = data['group'][0];
+    let firstYear = data['year'][0];
+      buildMetadata(firstYear,firstGroup);
+      makeAssets(firstYear, firstGroup);
   });
+};
 function optionChanged(newYear,newGroup) {
     d3.select("#map").html("");
     map.remove()
     d3.select("#mapbox").append("div")
       .attr("id", "map");
-    makeAssets(newYear);
-    buildMetadata(newYear);
+    makeAssets(newYear, newGroup);
+    buildMetadata(newYear, newGroup);
     
 };
 

@@ -8,28 +8,45 @@ from django.db.models import Sum ,Count
 def api(request):
     return HttpResponse("Hello, API!")
 
-def years(request):
-    """ returns list of availible years """
-    list = {"year":[]}
+def populate(request):
+    """ returns list of availible years and top 10 terrorist groups"""
+    list = {"year":[],
+            "group": [
+                "All",
+                "Taliban",
+                "Islamic State of Iraq and the Levant (ISIL)",
+                "Al-Shabaab",
+                "Communist Party of India - Maoist (CPI-Maoist)",
+                "Boko Haram",
+                "New People's Army (NPA)",
+                "Maoists",
+                "Tehrik-i-Taliban Pakistan (TTP)",
+                "Revolutionary Armed Forces of Colombia (FARC)",
+                "Kurdistan Workers' Party (PKK)"
+                ],
+            }
     for value in GlobalTerrorism.objects.values('iyear').distinct():
         list["year"].append(value["iyear"])
+    # for value in GlobalTerrorism.objects.values('gname').annotate(tcount=Count('index1')).order_by('-tcount')[1:11]:
+    #     list["group"].append(value['gname'])
     return JsonResponse(list)
 
-def groups(request):
-    """ returns top 10 terrorist groups form 2000-2016 """
-    list = {"group":[]}
-    for value in GlobalTerrorism.objects.values('gname').annotate(tcount=Count('index1')).order_by('-tcount')[1:11]:
-        list["group"].append(value['gname'])
-    return JsonResponse(list['group'], safe=False)
-
-def metadata(request, year_input):
+def metadata(request, year_input, group_input):
     """ returns metadata on specific year """
-    num_attacks = GlobalTerrorism.objects.values('index1').\
-        filter(iyear=year_input).count()
-    num_kill = GlobalTerrorism.objects.filter(iyear=year_input).\
-        aggregate(Sum('nkill'))
-    num_wound = GlobalTerrorism.objects.filter(iyear=year_input).\
-        aggregate(Sum('nwound'))
+    if group_input == "All":
+        num_attacks = GlobalTerrorism.objects.values('index1').\
+            filter(iyear=year_input).count()
+        num_kill = GlobalTerrorism.objects.filter(iyear=year_input).\
+            aggregate(Sum('nkill'))
+        num_wound = GlobalTerrorism.objects.filter(iyear=year_input).\
+            aggregate(Sum('nwound'))
+    else:
+        num_attacks = GlobalTerrorism.objects.values('index1').\
+            filter(iyear=year_input, gname=group_input).count()
+        num_kill = GlobalTerrorism.objects.filter(iyear=year_input, gname=group_input).\
+            aggregate(Sum('nkill'))
+        num_wound = GlobalTerrorism.objects.filter(iyear=year_input, gname=group_input).\
+            aggregate(Sum('nwound'))
 
     year_metadata = {
         "Total Attacks":num_attacks,
@@ -39,13 +56,13 @@ def metadata(request, year_input):
     return JsonResponse(year_metadata)
 
 
-
-
-
-
-def location(request, year_input):
+def location(request, year_input, group_input):
     """ returns lat and long for each attack by year"""
     list = []
-    for value in GlobalTerrorism.objects.values('latitude', 'longitude').filter(iyear=year_input):
-        list.append(value)
+    if group_input == "All":
+        for value in GlobalTerrorism.objects.values('latitude', 'longitude').filter(iyear=year_input):
+            list.append(value)
+    else:
+        for value in GlobalTerrorism.objects.values('latitude', 'longitude').filter(iyear=year_input,gname=group_input):
+            list.append(value)
     return JsonResponse(list, safe=False)
