@@ -1,7 +1,7 @@
 from django.shortcuts import render , get_object_or_404
 from django.http import HttpResponse , JsonResponse
 from .models import GlobalTerrorism
-from django.db.models import Sum
+from django.db.models import Sum ,Count
 
 
 
@@ -15,6 +15,12 @@ def years(request):
         list["year"].append(value["iyear"])
     return JsonResponse(list)
 
+def groups(request):
+    """ returns top 10 terrorist groups form 2000-2016 """
+    list = {"group":[]}
+    for value in GlobalTerrorism.objects.values('gname').annotate(tcount=Count('index1')).order_by('-tcount')[1:11]:
+        list["group"].append(value['gname'])
+    return JsonResponse(list['group'], safe=False)
 
 def metadata(request, year_input):
     """ returns metadata on specific year """
@@ -31,6 +37,11 @@ def metadata(request, year_input):
         "Total Wounded":num_wound['nwound__sum'],
     }
     return JsonResponse(year_metadata)
+
+
+
+
+
 
 def location(request, year_input):
     """ returns lat and long for each attack by year"""

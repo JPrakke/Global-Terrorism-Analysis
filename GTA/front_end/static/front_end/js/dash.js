@@ -319,7 +319,17 @@ function init() {
       makeAssets(firstYear);
   });
 }
-function optionChanged(newYear) {
+let gSelector = d3.select("#selGroup");
+  d3.json("api/groups").then((data) => {
+    for(i=0;i<data.length; i++){
+      gSelector
+        .append("option")
+        .text(data[i])
+        .property("value",data);
+    } 
+    let baseGroup = data;
+  });
+function optionChanged(newYear,newGroup) {
     d3.select("#map").html("");
     map.remove()
     d3.select("#mapbox").append("div")
