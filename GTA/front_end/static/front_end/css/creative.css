@@ -1222,3 +1222,11 @@
 hr.clear {
   border-color: #49657C;
 }
+
+.linkcontainer{
+  align-content: center;
+}
+
+.linkIcons{
+  margin-right: 5px !important;
+}
