@@ -1207,3 +1207,7 @@
 .dropdown-divider{
   border-top: 1px solid black;
 }
+
+.bg-viz {
+  background-color: #4A657F !important;
+}
