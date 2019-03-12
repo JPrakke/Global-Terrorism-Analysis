@@ -34,4 +34,8 @@ Application:
 * pytz
 
 Machine Learning:
-* coming soon
+* matplotlib
+* numpy
+* pandas
+* sqlalchemy
+* sklearn

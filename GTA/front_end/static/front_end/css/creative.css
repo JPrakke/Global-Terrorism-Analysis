@@ -1211,3 +1211,14 @@
 .bg-viz {
   background-color: #4A657F !important;
 }
+
+.centerPNG{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+hr.clear {
+  border-color: #49657C;
+}
