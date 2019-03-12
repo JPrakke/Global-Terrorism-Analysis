@@ -7,13 +7,10 @@ from sqlalchemy import create_engine
 print("========================================================================================")
 print("================================Script Initalizing...===================================")
 print("========================================================================================")
-whi_file = "Data/WHI.csv"
-whi_df = pd.read_csv(whi_file)
 
 
-gtd_file = "Data/GTD.csv"
 
-
+gtd_file = "Data/GTD_SQL.csv"
 gtd_df = pd.read_csv(gtd_file, encoding = 'iso-8859-1')
 
 connection_string = "db connection string here"
@@ -23,17 +20,6 @@ engine = create_engine(f'{connection_string}',encoding='iso-8859-1', connect_arg
 engine.execute("USE mxtuv3eszpumt13d")
 print("Database Created")
 
-whi_df
-whi_df = whi_df[['country','year','Life Ladder']]
-whi_df = whi_df.reset_index()
-whi_df.set_index("index",inplace=True)
-
-whi_df
-whi_df = whi_df.rename(columns={'Life Ladder':'life_ladder'})
-
-print("Creating Happiness Table ..")
-whi_df.to_sql(name='world_happiness_index', con=engine, if_exists='append', index=False)
-print("Happiness Table created")
 gtd_df.head()
 gtd_df = gtd_df.reset_index()
 gtd_df.set_index("index",inplace=True)
