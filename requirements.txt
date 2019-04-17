@@ -1,4 +1,0 @@
--i https://pypi.org/simple
-django==2.1.7
-mysqlclient==1.4.2.post1
-pytz==2018.9

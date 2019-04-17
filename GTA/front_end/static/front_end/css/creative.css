@@ -1230,3 +1230,7 @@ hr.clear {
 .linkIcons{
   margin-right: 5px !important;
 }
+
+#dropdown-text{
+  font-size: 80% !important;
+}

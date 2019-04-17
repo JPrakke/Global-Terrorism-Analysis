@@ -19,7 +19,6 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
 
     <script type="text/javascript" src="{% static 'front_end/vendor/scrollreveal/scrollreveal.min.js' %}"></script>
-    <!-- <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
     <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="crossorigin=""></script>
     <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
@@ -45,10 +44,10 @@
               aria-haspopup="true" aria-expanded="false">
               More
               </a>
-              <div class=" dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item.nav-item DDstyle" href="../api/">Api Documentation</a>
+              <div class=" dropdown-menu" aria-labelledby="navbarDropdown" style = "text-align:center">
+                <a id="dropdown-text" class="dropdown-item.nav-item DDstyle" href="../api/">Api Documentation</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item.nav-item DDstyle" href="https://github.com/JPrakke/19-Global-Terrorism-Analysis">GitHub Repository</a>
+                <a id="dropdown-text" class="dropdown-item.nav-item DDstyle" href="https://github.com/JPrakke/19-Global-Terrorism-Analysis">GitHub Repository</a>
               </div>
             </li>
           </ul>
