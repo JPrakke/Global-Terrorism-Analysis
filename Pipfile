@@ -8,6 +8,9 @@ verify_ssl = true
 [packages]
 django = "*"
 mysqlclient = "*"
+whitenoise = "*"
+gunicorn = "*"
+python-decouple = "*"
 
 [requires]
 python_version = "3.7"

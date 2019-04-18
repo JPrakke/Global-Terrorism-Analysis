@@ -2,7 +2,7 @@
 # config files
 settings.js
 hold.py
-
+.env
 ##--------------------------.gitignore--------------------------###
 # Byte-compiled / optimized / DLL files
 __pycache__/
