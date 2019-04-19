@@ -3,7 +3,8 @@ from . import views
 
 
 app_name = 'front_end'
+
 urlpatterns = [
-    path('', views.index, name='home'),
+    path('', views.home, name='home'),
     path('more/', views.additional, name='More Views')
 ]
