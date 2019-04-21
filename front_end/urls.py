@@ -6,6 +6,5 @@ app_name = 'front_end'
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('more/', views.additional, name='More Views'),
-    path('images/', views.images, name='img archive')
+    path('more/', views.additional, name='More Views')
 ]
