@@ -22,9 +22,7 @@ https://global-terror-analysis.herokuapp.com/
  * `pipenv install`
 3. populate a settings.py with database credentials.
 4. populate settings.js with map box api credentials.
-5. run the load_data.py script
-6. run the updateDB.sql script
-7. run `python manage.py runserver`
+5. run `python manage.py runserver`
 
 ### Dependencies
 ---
