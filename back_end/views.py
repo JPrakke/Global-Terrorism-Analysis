@@ -86,4 +86,4 @@ def attack_info(request, year_input, group_input):
     return JsonResponse(list, safe=False)
 
 def images(request):
-    return render(request, 'front_end/images.html')
+    return render(request, 'back_end/images.html')
