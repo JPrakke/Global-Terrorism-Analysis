@@ -9,3 +9,6 @@ def home(request):
 
 def additional(request):
     return render(request,'front_end/additional.html') 
+
+def images(request):
+    return render(request, 'front_end/images.html')

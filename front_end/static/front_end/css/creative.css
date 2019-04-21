@@ -1234,3 +1234,13 @@ hr.clear {
 #dropdown-text{
   font-size: 80% !important;
 }
+
+.imagStore {
+  position: relative;
+  float: left;
+  width:  100%;
+  height: 80%;
+  background-position: 50% 50%; 
+  background-repeat:   no-repeat;
+  background-size:     cover; 
+}
