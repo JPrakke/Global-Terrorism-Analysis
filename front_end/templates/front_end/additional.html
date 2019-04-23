@@ -16,12 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'front_end/vendor/magnific-popup/magnific-popup.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'front_end/css/creative.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'front_end/css/custom.css' %}">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="crossorigin="">
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
     <script type="text/javascript" src="{% static 'front_end/vendor/scrollreveal/scrollreveal.min.js' %}"></script>
-    <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="crossorigin=""></script>
-    <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
   </head>
   <body id="page-top">
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -128,37 +123,6 @@
         <hr class="my-4">
       </div>
       <div class='container'>
-        <div class='tableauPlaceholder centerPNG' id='viz1552369087699' style='position: relative'>
-          <noscript>
-          <a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DY&#47;DY7NCCCS7&#47;1_rss.png' style='border: none' /></a>
-          </noscript>
-          <object class='tableauViz' style='display:none;'>
-          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-          <param name='embed_code_version' value='3' />
-          <param name='path' value='shared&#47;DY7NCCCS7' />
-          <param name='toolbar' value='yes' />
-          <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DY&#47;DY7NCCCS7&#47;1.png' />
-          <param name='animate_transition' value='yes' />
-          <param name='display_static_image' value='yes' />
-          <param name='display_spinner' value='yes' />
-          <param name='display_overlay' value='yes' />
-          <param name='display_count' value='yes' />
-          <param name='filter' value='publish=yes' />
-          </object>
-        </div>
-        <hr class="my-4">
-        <p class="text-white mb-0">
-          The following vizualizations made by Tableau show actual counts from our dataset, and are not predicted by machine learning models.
-          While a lot of it follows the trends identified by our models, the United States has the fifth highest amount of casualties of terrorism.
-          Granted, a large portion of that comes from the September 11th terrorist attacks; however, the United States leads the world in mass shootings. The casualty counts reach almost 9000
-          killed and wounded, which makes up almost half of all casualties in the U.S. for terrorism alone. This explains why the U.S. doesnt have that many incidents compared to other countries,
-          yet has a large amount of casualties. With our models predicting them to have rising likeliness of casualties due to terrorism, their placement in the top ten is not shocking. Even though the United 
-          States produces some of the most casualties, they do not have that many attacks compared to the rest of the world. They arguably have some of the highest casualties 
-          per attack however.
-        </p>
-        <hr class="my-4">
-      </div>
-      <div class='container'>
         <h2 class="section-heading"style="text-align:center;color: rgb(255, 255, 255);"><strong>Machine Learning</strong></h2>
         <hr class="my-4">
         <div class="row">
@@ -171,6 +135,7 @@
             <div class="col"><img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/nwound_by_year.png' %}" /></div>
         </div>
       </div>
+        </div>
     </section>
     <script type="text/javascript" src="{% static 'front_end/vendor/jquery/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'front_end/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -178,5 +143,6 @@
     <script type="text/javascript" src="{% static 'front_end/vendor/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'front_end/js/creative.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'front_end/js/tabAdd.js' %}"></script>
-  </body>
-</html>
+    
+    </body>
+    </html>

@@ -368,9 +368,9 @@
      transform: translate(-50%, -50%);
      -ms-transform: translate(-50%, -50%)
    }
-   /* ::-webkit-scrollbar { 
+   ::-webkit-scrollbar { 
      display: none; 
- } */
+ }
  .text-white{
    color:white !important;
    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;

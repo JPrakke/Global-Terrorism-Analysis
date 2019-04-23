@@ -4,15 +4,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Interactive Dashboard and Predictive Analysis of Global Terrorism">
-    <meta name="author" content="The Gauntlet">
-    <meta property="og:title" content="Global Terrorism Analysis">
-    <meta property="og:url" content="https://global-terror-analysis.herokuapp.com/">
-    <meta property="og:description" content="Interactive Dashboard and Predictive Analysis of Global Terrorism">
-    <meta property="og:image" content="https://global-terror-analysis.herokuapp.com/static/front_end/assets/page-assets/thumbnail.c8c1db3480a2.png">
-    <meta property="og:type" content="Dashboard">   
-    <title>Global Terrorism Analysis</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>GTA | Additional Views</title>
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'front_end/assets/icons/bookmark_icon.png' %}">
+
     <link rel="stylesheet" type="text/css" href="{% static 'front_end/vendor/bootstrap/css/bootstrap.css' %}">  
     <link rel="stylesheet" type="text/css" href="{% static 'front_end/vendor/fontawesome-free/css/all.css' %}">
     <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
@@ -23,46 +19,31 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="crossorigin="">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
     <script type="text/javascript" src="{% static 'front_end/vendor/scrollreveal/scrollreveal.min.js' %}"></script>
-    <script type="text/javascript" src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="crossorigin=""></script>
     <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
   </head>
   <body id="page-top">
-     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Home</a>
+        <a class="navbar-brand js-scroll-trigger" href="../">Return Home</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+          aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" 
-              href="#about">Data Traversal</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#services">Data Analysis</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#summary">Data Summary</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Meet the Team</a>
-            </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
-                aria-haspopup="true" aria-expanded="false">
-                More
+              aria-haspopup="true" aria-expanded="false">
+              More
               </a>
-              <div class=" dropdown-menu" aria-labelledby="navbarDropdown" style = "text-align:center" >
-                <a id="dropdown-text" class="dropdown-item.nav-item DDstyle" href="../api/">API Documentation</a>
-                <div class="dropdown-divider"></div>
-                <a id="dropdown-text" class="dropdown-item.nav-item DDstyle" href="../more/">Additional Views</a>
+              <div class=" dropdown-menu" aria-labelledby="navbarDropdown" style = "text-align:center">
+                <a id="dropdown-text" class="dropdown-item.nav-item DDstyle" href="../api/">Api Documentation</a>
                 <div class="dropdown-divider"></div>
                 <a id="dropdown-text" class="dropdown-item.nav-item DDstyle" href="https://github.com/JPrakke/19-Global-Terrorism-Analysis">GitHub Repository</a>
-             </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -73,354 +54,130 @@
         <div class="row">
           <div class="col-lg-10 mx-auto">
             <h2>
-            <strong>"Terrorism will spill over if you don't speak up." </br> -Malala Yousafzai</strong>
+             <strong>Additional Data Vizualizations</strong>
             </h2>
             <hr>
-              <div class="col-lg-8 mx-auto">
-                <h5 class="mb-5">
+            <div class="col-lg-8 mx-auto">
+              <h5 class="mb-5">
                 <b>
-                  By analyzing various acts of terrorism around the world,
-                  we decided to create an interactive dashboard to visualize
-                  worldwide acts of terrorism. Through the use of modern
-                  technology and machine learning, we have taught a machine to predict
-                  future data and acts of terrrorism, based on years of previous data.
+                When building our data analysis, we had many more 
+                questions we wanted to address, but they did not fit
+                clearly with the message we were interpreting through our
+                dashboard. This page contains a few additional vizualizations
+                and information regarding global terrorism from 2000 to 2016.
                 </b>
-                </h5>
-              </div>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Explore the Data</a>
-            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#services">Data Analysis</a>
+              </h5>
+            </div>
           </div>
         </div>
       </div>
     </header>
-    <section class="bg-primary" id="about">
-      <div class="container my-auto">
-        <div class="row">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="section-heading text-white"><strong>Data Traversal</strong></h2>
-            <hr class="light my-4">
-          </div>
-        </div>
-      </div>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-2" style="padding-top:155px">
-            <div class="well well-sm" onchange="optionChanged(document.getElementById('selDataset').value, document.getElementById('selGroup').value )">
-              <h5 class="text-white">Select Year:</h5>
-              <select id="selDataset" class="text-white" style="width:100px;background-color: #415360"></select>
-              <h5 class="text-white">Select Group:</h5>
-              <select id="selGroup" class="text-white" style="width:100px;background-color: #415360"></select>
-            </div>
-            <div class="panel panel-primary">
-              <div class="panel-heading" style="background-color: #42545F">
-              <h3 class="panel-title">MetaData: </h3>
-              </div>
-              <div id="year-metadata" class="panel-body text-white"></div>
-            </div>
-          </div>
-          <div class="col-md-10" id="mapbox">
-           <div id="map"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="bg-secondary" id="services">
+    <section class="bg-viz" id-="about">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading"style="color: rgb(255, 255, 255);"><strong>Data Analysis</strong></h2>
-            <hr class="my-4">
-          </div>
-        </div>
+        <h2 class="section-heading"style="text-align:center;color: rgb(255, 255, 255);"><strong>Attack By Region</strong></h2>
+        <hr class="my-4">
       </div>
-      <div class="container-fluid">
-        <div class='tableauPlaceholder' id='viz1552401571943' style='position: relative'>
+      <div class="container">
+        <img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/atk_region.png' %}" />
+        <hr class="my-4">
+        <p class="text-white mb-0">
+          The Middle East and South Asia are historically where the most terrorist activity occurs. 
+          Our initial analysis reported that these were already dense with terrorist
+          activity, but the spike of 2012 mentioned in our original analysis mentioned the 
+          Taliban reaching out to other groups in Asia to spread their wave of terror;
+          and this graph shows that increase in both the Middle East states, and southern 
+          Asian states. It's also important to note the spike in activity in eastern Europe,
+          largely can be attribute to the immense amount of activity mentioned in our initial
+           analysis from Greece.
+        </p>
+        <hr class="my-4">
+        <h2 class="section-heading"style="text-align:center;color: rgb(255, 255, 255);"><strong>Top Ten Countries by Casualty Likeliness (Predicted)</strong></h2>
+        <hr class="my-4">
+      </div>
+      <div class="container">
+        <img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/casualty_pie.png' %}" />
+        <hr class="my-4">
+        <p class="text-white mb-0">
+          A break down of the top ten countries most likely to have a terrorist attack. These 
+          values were predicted using the machine learning model Random Forest Classifier.
+          We recieved a very high accuracy score on this model. Most of it comes from the Middle 
+          East and Asia as expected, however what is staggering
+          is that out of 164 countries listed in our database, these ten countries alone have a 67.
+          4% chance of having a casualty of a terrorist attack in them. 6.1% of
+          countries in our database have a 67.4% chance of having the next casualty of a terrorist attack.
+        </p>
+        <hr class="my-4">
+        <h2 class="section-heading"style="text-align:center;color: rgb(255, 255, 255);"><strong>Top Seven Regions by Casualty Likeliness (Predicted)</strong></h2>
+        <hr class="my-4">
+      </div>
+      <div class="container">
+        <img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/region_pie.png' %}" />
+        <hr class="my-4">
+        <p class="text-white mb-0">
+          Using machine learning, we were able to predict the likeliness of being the next country
+           to have a casualty to a terrorist attack. The model used was a 
+          Random Forest Classifier, and gave us a very high score on accuracy. One interesting thing to notice
+          is while a European country does not appear in our pie chart of the top ten countries most likely 
+          to have a terrorist casualty next, our model predicts that there is a 10.5%
+          chance of it having the next casualty of a terrorist attack. 
+          With rising tensions over immigration control and how refugees are handled, we have seen increasing amounts of large
+          scale acts of terrorism on the European public such as 
+          <a href="https://en.wikipedia.org/wiki/November_2015_Paris_attacks">the November 2015 Paris attacks.</a>
+          Our model predicted America as the #31 spot, estimating that there was a 5.1% chance of having the next casualty of a terrorist attack.
+        </p>
+        <hr class="my-4">
+      </div>
+      <div class='container'style="width:100%">
+        <div class='tableauPlaceholder centerPNG' id='viz1552369087699' style='position: relative'>
           <noscript>
-           <a href='#'><img alt='Terrorism Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;7B&#47;7BS647CD5&#47;1_rss.png' style='border: none' /></a>
+          <a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DY&#47;DY7NCCCS7&#47;1_rss.png' style='border: none' /></a>
           </noscript>
           <object class='tableauViz' style='display:none;'>
-            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-            <param name='embed_code_version' value='3' />
-            <param name='path' value='shared&#47;7BS647CD5' />
-            <param name='toolbar' value='yes' />
-            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;7B&#47;7BS647CD5&#47;1.png' />
-            <param name='animate_transition' value='yes' />
-            <param name='display_static_image' value='yes' />
-            <param name='display_spinner' value='yes' />
-            <param name='display_overlay' value='yes' />
-            <param name='display_count' value='yes' />
-            <param name='tabs' value='no' />
-            <param name='filter' value='publish=yes' />
+          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+          <param name='embed_code_version' value='3' />
+          <param name='path' value='shared&#47;DY7NCCCS7' />
+          <param name='toolbar' value='yes' />
+          <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;DY&#47;DY7NCCCS7&#47;1.png' />
+          <param name='animate_transition' value='yes' />
+          <param name='display_static_image' value='yes' />
+          <param name='display_spinner' value='yes' />
+          <param name='display_overlay' value='yes' />
+          <param name='display_count' value='yes' />
+          <param name='filter' value='publish=yes' />
           </object>
         </div>
-      </div>  
-      <div class="row">
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="service-box mt-5 mx-auto">
-            <i class="fas fa-4x fa-trash text-primary mb-3 sr-icon-1"></i>
-            <h3 class="text-white mb-3">Where is the data for 1993?</h3>
-            <p class="text-white mb-0">
-              The original PGIS data, whereupon the 1970-1997 GTD information are based,
-              consisted of hard-copy index cards originally. When being electronically
-              transferred by researchers, significant data for 1993 went missing and
-              is omitted due to this.
-            </p>
-          </div>
+        <hr class="my-4">
+        <p class="text-white mb-0">
+          The following vizualizations made by Tableau show actual counts from our dataset, and are not predicted by machine learning models.
+          While a lot of it follows the trends identified by our models, the United States has the fifth highest amount of casualties of terrorism.
+          Granted, a large portion of that comes from the September 11th terrorist attacks; however, the United States leads the world in mass shootings. The casualty counts reach almost 9000
+          killed and wounded, which makes up almost half of all casualties in the U.S. for terrorism alone. This explains why the U.S. doesnt have that many incidents compared to other countries,
+          yet has a large amount of casualties. With our models predicting them to have rising likeliness of casualties due to terrorism, their placement in the top ten is not shocking. Even though the United 
+          States produces some of the most casualties, they do not have that many attacks compared to the rest of the world. They arguably have some of the highest casualties 
+          per attack however.
+        </p>
+        <hr class="my-4">
+      </div>
+      <div class='container'>
+        <h2 class="section-heading"style="text-align:center;color: rgb(255, 255, 255);"><strong>Machine Learning</strong></h2>
+        <hr class="my-4">
+        <div class="row">
+            <div class="col"><img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/atk_by_year.png' %}" /></div>
+            <div class="col"><img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/casualty_by_year.png' %}" /></div>
         </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="service-box mt-5 mx-auto">
-            <i class="fas fa-4x fa-server text-primary mb-3 sr-icon-2"></i>
-            <h3 class="text-white mb-3">Database Debacles</h3>
-            <p class="text-white mb-0">
-              Data type for loading in MySQL, INT and DOUBLE cannot take negative.
-              <code>"Solution: INT Signed, DOUBLE signed"</code>
-              But later we did not end up using this as MySQL Data Import would give
-              a lot of issues, and we changed the approach to using Pandas to load the data.
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="service-box mt-5 mx-auto">
-            <i class="fas fa-4x fa-shower text-primary mb-3 sr-icon-3"></i>
-            <h3 class="text-white mb-3">Cleaning up the Data</h3>
-            <p class="text-white mb-0">
-              We decided to only take data from the current century (2000-2016) to help performance.
-              Entries that were missing important tools such as lattitude and longitude were removed for mapping
-              purposes.
-              After cleaning with PANDAS, the data was loaded back into mySQL with 99,801 rows.
-            </p>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="service-box mt-5 mx-auto">
-            <i class="fas fa-4x fa-calendar text-primary mb-3 sr-icon-4"></i>
-            <h3 class="text-white mb-3">Checked for Accuracy</h3>
-            <p class="text-white mb-0">
-              For the integrity of our information, we cross-referenced our datasets by
-              querying major terrorism events (September 11th, Pulse Nightclub, Etc.)
-              from our database, and comparing our outcomes to official news reports to match correct values.
-            </p>
-          </div>
+        <hr class="clear">
+        <div class="row">
+            <div class="col"><img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/nkill_by_year.png' %}" /></div>
+            <div class="col"><img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/nwound_by_year.png' %}" /></div>
         </div>
       </div>
     </section>
-    <section id="summary">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading"><strong>Data Summary</strong></h2>
-            <hr class="my-4">
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-left">
-            <p>
-              Based on our analysis of worldwide terrorism, we discovered a possible trend in casualties using machine learning and linear regression.
-              From 2000 to 2011, acts of terrorism increased slightly over the years 2000 to 2011, but in 2012 there was a massive increase in terrorist activity. 
-              The increase in 2012 is due to factors such as religion, economics, and political disputes. Since 2012, global terrorism has been on a rise,
-              and the casualty count is continuing to rise year after year. Casualty is defined as a person killed or injured by a war or an accident, so our analysis
-              includes those both wounded and killed by terrorist attacks. While the above graphs fluctuate up and down with the number of casualties, we applied the linear 
-              regression machine learning model to train a Python program to identify a linear trend. Our model was able to find a trend line for the number wounded with 
-              ~71% accuracy, and a trend line for the number killed with ~75% accuracy. Both trend lines appear as the dotted lines in the graph above. The important thing
-              to note is while 2016 is lower than 2015 in terms of number of casualties, the trend line is predicting these counts to rise, based on years of past data.  
-          </p>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <hr class="my-4">
-            <h2 class="section-heading"><strong>What started the spike in terrorism from 2012-2016?</strong></h2>
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-12 text-left">
-                  <p>
-                    Starting in 2012, there is a massive spike in the number of recored terrorist events worldwide. From 4941 attacks in 2011, to almost double in
-                    that amount (8077) in 2012. <a href='https://www.state.gov/j/ct/rls/crt/2012/209983.htm'>According to the U.S. Department of State, 
-                    in 2012 the al-Qa'ida core in Afghanistan and Pakistan was severly weakened.</a>
-                    However, operating out of safe havens, they were able to form close ties with other major terrorist sects such as the Taliban, and began to aggressively
-                    spread operations across southern and central Asia. 
-                  </p>
-                  <p>
-                      In other regions, a large contribution to this massive increase starting in 2012 comes from Greece of 
-                    all places, where anarchists began to carry out terrorist attacks on political targets and sites as the economy of Greece continued to spiral out of control.
-                    <a href='https://www.state.gov/j/ct/rls/crt/2012/209981.htm'>The U.S. Department of State claims 226 attacks in Greece in November alone,</a> while 
-                    <a href='https://www.reuters.com/article/us-greece-anarchists-specialreport/special-report-inside-greeces-violent-new-anarchist-groups-idUSBRE97D0AK20130814'>Reuters</a>
-                    reports 527 arson and bomb attacks in 2012 for Greece alone. From 1974 to 1986, Greece had a reported 542 arson and bomb attacks for that 12 year span. For the massive
-                    spike in 2012-2016, a large amount of that can be pointed at Greece, as its anarchist revolution over the failing economy really took off in 2012.
-                  </p>
-                  <p>
-                    In Colombia in 2012,
-                    clashing between the government and Revolutionary Armed Forces of Colmbia (FARC) greatly intensified. Even a temporary ceasefire from November of 2012 to January of 2013
-                    did not slow down the rapid growth of attacks, with <a href='https://www.state.gov/j/ct/rls/crt/2012/209984.htm'>the U.S. Department of State</a> reporting
-                    a 52% increase in attacks over 2011. Most of the attacks were carried out on political sites, police stations, or the military; however, a significant amount
-                    amount of casualties were civilian. This 52% increase is another factor in our spike from 2012-2016, and continuing political disputes between FARC and the Colombian government
-                    have only lead to increasing acts of terrorism in South America.
-                  </p>
-                </div>
-              </div>
-            </div> 
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <hr class="my-4">
-          </div>
-        </div>
-      </div>    
-    </section>
-    <section id="contact" class="bg-primary">
-      <div class="container">
-        <h2 class="section-heading text-white" style="text-align: center"><strong>Meet the Team</strong></h2>
-        <hr class="light my-4">
-      </div>
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <div class="d-flex justify-content-center ">
-            <div class="columnjosh">
-              <div class="content-josh">
-                <div class="card">
-                  <img class="profilejosh" src="{% static 'front_end/assets/img/JPrakke.jpg' %}" alt="Josh" style="width:100%">
-                  <div class="container-contentjosh">
-                    <div class="textjosh">
-                      <h2><strong>Josh Prakke</strong></h2>
-                      <p>Project Lead</p>
-                      <p>Full Stack Developer</p>
-                      <p>HTML/CSS/Javascript/<br>MySQL/Django</p>
-                    </div>
-                    <div class="linkcontainer">
-                      <a href="https://github.com/JPrakke"><img class="linkIcons" src="{% static 'front_end/assets/icons/Github-PNG-Image.png' %}"></a>
-                      <a href="https://www.linkedin.com/in/joshua-prakke-24a77267/"><img class="linkIcons" src="{% static 'front_end/assets/icons/linkedin.png' %}"></a>
-                      <a href="mailto:JoshPrakke@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/icons/email.png' %}"></a>
-                    </div>  
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="columnjoel">
-              <div class="content-joel">
-                <div class="card">
-                  <img class="profilejoel" src="{% static 'front_end/assets/img/JBotardo.jpg' %}" alt="Joel" style="width:100%">
-                  <div class="container-contentjoel">
-                    <div class="textjoel">
-                      <h2><strong>Joel Botardo</strong></h2>
-                      <p>Web Development & Data Analyis</p>
-                      <p>HTML/CSS/Tableau<br>Machine Learning/</p>
-                    </div>
-                    <div class="linkcontainer">
-                      <a href="https://github.com/jbotardo"><img class="linkIcons" src="{% static 'front_end/assets/icons/Github-PNG-Image.png' %}"></a>
-                      <a href="https://www.linkedin.com/in/joelbotardo/"><img class="linkIcons" src="{% static 'front_end/assets/icons/linkedin.png' %}"></a>
-                      <a href="mailto:J.Botardo@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/icons/email.png' %}"></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="columntim">
-              <div class="content-tim">
-                <div class="card">
-                  <img class="profiletim" src="{% static 'front_end/assets/img/TSharpe.jpg' %}" alt="Tim" style="width:100%">
-                  <div class="container-contenttim">
-                    <div class="texttim">
-                      <h2><strong>Timothy Sharpe</strong></h2>
-                      <p>Typographer</p>
-                      <p>Web Development & Data Analysis</p>
-                      <p>HTML/CSS</p>
-                    </div>
-                    <div class="linkcontainer">
-                      <a href="https://github.com/timothysharpe"><img class="linkIcons" src="{% static 'front_end/assets/icons/Github-PNG-Image.png' %}"></a>
-                      <a href="https://www.linkedin.com/in/timothy-sharpe-2b8a8b169/"><img class="linkIcons" src="{% static 'front_end/assets/icons/linkedin.png' %}"></a>
-                      <a href="mailto:timothysharpe1295@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/icons/email.png' %}"></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <div class="d-flex justify-content-center" style="background-color:#49657C">
-            <div class="columnkunal">
-              <div class="content-kunal">
-                <div class="card">
-                  <img class="profilekunal" src="{% static 'front_end/assets/img/KSoni.jpg' %}" alt="Kunal" style="width:100%">
-                  <div class="container-contentkunal">
-                    <div class="textkunal">
-                      <h2><strong>Kunal Soni</strong></h2>
-                      <p>Database Manager</p>
-                      <p>ETL & Data Analysis</p>
-                      <p>MySQL/Pandas/<br>Machine Learning</p>
-                    </div>
-                    <div class="linkcontainer">
-                      <a href="https://github.com/kunal-soni"><img class="linkIcons" src="{% static 'front_end/assets/icons/Github-PNG-Image.png' %}"></a>
-                      <a href="https://www.linkedin.com/in/kunal-soni-2a26559/"><img class="linkIcons" src="{% static 'front_end/assets/icons/linkedin.png' %}"></a>
-                    <a href="mailto:Kunal.A.Soni@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/icons/email.png' %}"></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="columnjhuelian">
-              <div class="content-jhuelian">
-                <div class="card">
-                  <img class="profilejhuelian" src="{% static 'front_end/assets/img/JKyle.jpg' %}" alt="Jhuelian" style="width:100%">
-                  <div class="container-contentjhuelian">
-                    <div class="textjhuelian">
-                      <h2><strong>Jhuelien Kyle</strong></h2>
-                      <p>Data Visualization</p>
-                      <p>Matplotlib</p>
-                    </div>
-                    <div class="linkcontainer">
-                      <a href="https://github.com/jhueliankg3"><img class="linkIcons" src="{% static 'front_end/assets/icons/Github-PNG-Image.png' %}"></a>
-                      <a href="https://www.linkedin.com/in/jhuelian-gasmena-a64a60125/"><img class="linkIcons" src="{% static 'front_end/assets/icons/linkedin.png' %}"></a>
-                      <a href="mailto:jhueliankg3@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/icons/email.png' %}"></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="columnjean">
-              <div class="content-jean">
-                <div class="card">
-                  <img class="profilejean" src="{% static 'front_end/assets/img/JCMedina.jpg' %}" alt="Jean" style="width:100%">
-                  <div class="container-contentjean">
-                    <div class="textjean">
-                      <h2><strong>Jean Carlos Medina</strong></h2>
-                      <p>Data Visualization</p>
-                      <p>Tableau</p>
-                    </div>
-                      <div class="linkcontainer">
-                      <a href="https://github.com/JCMedinaG"><img class="linkIcons" src="{% static 'front_end/assets/icons/Github-PNG-Image.png' %}"></a>
-                      <a href="https://www.linkedin.com/in/jcmg/"><img class="linkIcons" src="{% static 'front_end/assets/icons/linkedin.png' %}"></a>
-                      <a href="datajcmg@gmail.com"><img class="linkIcons" src="{% static 'front_end/assets/icons/email.png' %}"></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>    
-      </div>
-    </section>
-    <script type="text/javascript">
-      const API_KEY = "{{API_KEY}}";
-    </script>
     <script type="text/javascript" src="{% static 'front_end/vendor/jquery/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'front_end/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'front_end/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'front_end/vendor/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'front_end/js/creative.min.js' %}"></script>
-    <script type="text/javascript" src="{% static 'front_end/js/tab.js' %}"></script>
-    <script type="text/javascript" src="{% static 'front_end/js/heatmap.js' %}"></script>
-    <script type="text/javascript" src="{% static 'front_end/js/dash.js' %}"></script>
-    <script type="text/javascript" src="{% static 'front_end/js/d3pie.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'front_end/js/tabAdd.js' %}"></script>
+    
   </body>
 </html>
