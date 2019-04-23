@@ -249,13 +249,19 @@ const makeAssets = (year,group) =>{
   d3.json(`/api/coord/${year}/${group}`).then(data =>{
       let ts1 = Object.values(data)
       let markCoords = []
+      const magColor = d=>{
+        return d>3 ? "rgb(255,0,0)"
+             : d>2 ? "yellow"
+             : d>1 ? "rgb(0,255,0)"
+             :"rgb(0,0,255)";
+    };
       for(i=0; i<ts1.length; i++){
           dict = {
               "lat":ts1[i]["latitude"],
               "long":ts1[i]["longitude"]
           }
           markCoords.push(dict)
-      }
+      };
       var testData ={
           max: markCoords.length,
           data: markCoords
@@ -270,7 +276,7 @@ const makeAssets = (year,group) =>{
       var cfg={
           // radius should be small ONLY if scaleRadius is true (or small radius is intended)
           // if scaleRadius is false it will be the constant radius used in pixels
-          "radius": 2,
+          "radius": 1,
           "maxOpacity": .8, 
           // scales the radius based on map zoom
           "scaleRadius": true, 
@@ -291,6 +297,22 @@ const makeAssets = (year,group) =>{
           zoom:2.49,
           layers: [baseLayer, heatmaplayer]
       });
+      const legend = L.control({position: "bottomright"});
+      legend.onAdd = map => {
+          let div = L.DomUtil.create("div", "legend"),
+          mag = [0, 1, 2, 3];
+          div.innerHTML +=`<p class="legend"><strong>Frequency of Attacks</strong></p>
+                           <div class="dropdown-divider"></div>
+                           <p class="legend-key-left"><strong>Less</p>
+                           <p class="legend-key-right"><strong>More</p>`
+          
+          for (i=0;i<mag.length;i++){
+              div.innerHTML += '<i style="background:' + magColor(mag[i] + 1) + '"></i> ';
+          }
+  
+      return div;
+      };
+      legend.addTo(map);
       heatmaplayer.setData(testData)  
   });  
 };
