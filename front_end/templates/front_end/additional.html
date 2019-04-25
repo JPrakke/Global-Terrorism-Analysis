@@ -8,7 +8,6 @@
     <meta name="author" content="">
     <title>GTA | Additional Views</title>
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'front_end/assets/icons/bookmark_icon.png' %}">
-
     <link rel="stylesheet" type="text/css" href="{% static 'front_end/vendor/bootstrap/css/bootstrap.css' %}">  
     <link rel="stylesheet" type="text/css" href="{% static 'front_end/vendor/fontawesome-free/css/all.css' %}">
     <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'>
@@ -31,8 +30,8 @@
             <li class="nav-item">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
-              aria-haspopup="true" aria-expanded="false">
-              More
+                aria-haspopup="true" aria-expanded="false">
+                More
               </a>
               <div class=" dropdown-menu" aria-labelledby="navbarDropdown" style = "text-align:center">
                 <a id="dropdown-text" class="dropdown-item.nav-item DDstyle" href="../api/">Api Documentation</a>
@@ -55,11 +54,11 @@
             <div class="col-lg-8 mx-auto">
               <h5 class="mb-5">
                 <b>
-                When building our data analysis, we had many more 
-                questions we wanted to address, but they did not fit
-                clearly with the message we were interpreting through our
-                dashboard. This page contains a few additional vizualizations
-                and information regarding global terrorism from 2000 to 2016.
+                  When building our data analysis, we had many more 
+                  questions we wanted to address, but they did not fit
+                  clearly with the message we were interpreting through our
+                  dashboard. This page contains a few additional vizualizations
+                  and information regarding global terrorism from 2000 to 2016.
                 </b>
               </h5>
             </div>
@@ -67,7 +66,7 @@
         </div>
       </div>
     </header>
-    <section class="bg-viz" id-="about">
+    <section class="contact-section" id-="about">
       <div class="container">
         <h2 class="section-heading"style="text-align:center;color: rgb(255, 255, 255);"><strong>Attack By Region</strong></h2>
         <hr class="my-4">
@@ -83,7 +82,7 @@
           and this graph shows that increase in both the Middle East states, and southern 
           Asian states. It's also important to note the spike in activity in eastern Europe,
           largely can be attribute to the immense amount of activity mentioned in our initial
-           analysis from Greece.
+          analysis from Greece.
         </p>
         <hr class="my-4">
         <h2 class="section-heading"style="text-align:center;color: rgb(255, 255, 255);"><strong>Top Ten Countries by Casualty Likeliness (Predicted)</strong></h2>
@@ -110,7 +109,7 @@
         <hr class="my-4">
         <p class="text-white mb-0">
           Using machine learning, we were able to predict the likeliness of being the next country
-           to have a casualty to a terrorist attack. The model used was a 
+          to have a casualty to a terrorist attack. The model used was a 
           Random Forest Classifier, and gave us a very high score on accuracy. One interesting thing to notice
           is while a European country does not appear in our pie chart of the top ten countries most likely 
           to have a terrorist casualty next, our model predicts that there is a 10.5%
@@ -126,21 +125,32 @@
         <h2 class="section-heading"style="text-align:center;color: rgb(255, 255, 255);"><strong>Machine Learning</strong></h2>
         <hr class="my-4">
         <div class="row">
-            <div class="col"><img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/atk_by_year.png' %}" /></div>
-            <div class="col"><img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/casualty_by_year.png' %}" /></div>
+          <div class="col">
+            <img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/atk_by_year.png' %}" />
+          </div>
+          <div class="col">
+            <img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/casualty_by_year.png' %}" />
+          </div>
         </div>
         <hr class="clear">
         <div class="row">
-            <div class="col"><img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/nkill_by_year.png' %}" /></div>
-            <div class="col"><img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/nwound_by_year.png' %}" /></div>
+          <div class="col">
+            <img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/nkill_by_year.png' %}" />
+          </div>
+          <div class="col">
+            <img class="center-block centerPNG" src="{% static 'front_end/assets/visualizations/nwound_by_year.png' %}" />
+          </div>
         </div>
       </div>
-        </div>
+      <div class="footer-copyright text-center py-3">
+        © 2019 Copyright:
+        <a href="https://github.com/JPrakke"> Josh Prakke</a>
+      </div>
     </section>
     <script type="text/javascript" src="{% static 'front_end/vendor/jquery/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'front_end/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'front_end/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'front_end/vendor/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'front_end/js/creative.min.js' %}"></script>
-    </body>
-    </html>
+  </body>
+</html>
