@@ -3,6 +3,7 @@
 settings.js
 hold.py
 hold.html
+hold.js
 .env
 ##--------------------------.gitignore--------------------------###
 # Byte-compiled / optimized / DLL files
